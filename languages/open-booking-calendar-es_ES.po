@@ -1,0 +1,976 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Open Booking Calendar v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2019-05-14 07:55-0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Web Services Rank <support@webservicesrank.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-open-booking-calendar-admin.php:113
+#: admin/class-open-booking-calendar-admin.php:114
+#: includes/post-types/class-booking-cpt.php:48
+msgid "Bookings"
+msgstr "Reservas"
+
+#: admin/menu-pages/class-help-menu-page.php:46
+msgid "Get started and Help"
+msgstr "Inicio rápido y Ayuda"
+
+#: admin/menu-pages/class-help-menu-page.php:47
+msgid "Get Started & Help"
+msgstr "Inicio rápido & Ayuda"
+
+#: admin/menu-pages/class-settings-menu-page.php:48
+#: admin/menu-pages/class-settings-menu-page.php:49
+msgid "Settings"
+msgstr "Ajustes"
+
+#: admin/menu-pages/class-settings-menu-page.php:86
+msgid "Settings Saved"
+msgstr "Ajustes guardados"
+
+#: admin/menu-pages/class-settings-menu-page.php:102
+msgid "Save Settings"
+msgstr "Guardar ajustes"
+
+#: admin/menu-pages/class-settings-menu-page.php:120
+msgid "Open Booking Calendar configuration options."
+msgstr "Opciones de configuración de Open Booking Calendar."
+
+#: admin/menu-pages/class-settings-menu-page.php:129
+msgid "Calendar theme"
+msgstr "Tema del calendario"
+
+#: admin/menu-pages/class-settings-menu-page.php:143
+msgid "Date format"
+msgstr "Formato de fechas"
+
+#: admin/menu-pages/class-settings-menu-page.php:157
+msgid "Search results page"
+msgstr "Página de resultados de búsqueda"
+
+#: admin/menu-pages/class-settings-menu-page.php:171
+msgid "User to send email notifications"
+msgstr "Usuario para enviar notificaciones vía email"
+
+#: admin/menu-pages/class-settings-menu-page.php:196
+msgid "From this section you can customize the behavior of the plugin."
+msgstr "Desde esta sección puede personalizar el comportamiento del plugin."
+
+#: admin/menu-pages/class-settings-menu-page.php:214
+msgid "Default"
+msgstr "Por defecto"
+
+#: admin/menu-pages/class-settings-menu-page.php:215
+msgid "Dark"
+msgstr "Oscuro"
+
+#: admin/menu-pages/class-settings-menu-page.php:216
+msgid "Material Blue"
+msgstr "Material Azul"
+
+#: admin/menu-pages/class-settings-menu-page.php:217
+msgid "Material Green"
+msgstr "Material Verde"
+
+#: admin/menu-pages/class-settings-menu-page.php:218
+msgid "Material Red"
+msgstr "Material Rojo"
+
+#: admin/menu-pages/class-settings-menu-page.php:219
+msgid "Material Orange"
+msgstr "Material Naranja"
+
+#: admin/menu-pages/class-settings-menu-page.php:237
+msgid "The theme for the date picker (calendar)."
+msgstr "El tema para el selector de fecha (calendario)."
+
+#: admin/menu-pages/class-settings-menu-page.php:276
+msgid "Date format for all the plugin."
+msgstr "Formato de fecha para todo el plugin."
+
+#: admin/menu-pages/class-settings-menu-page.php:279
+msgid ""
+"This only modifies the way in which the dates are displayed, that is, there "
+"will be no problems with the dates previously saved."
+msgstr ""
+"Esto sólo modifica la forma en la que se visualizan las fechas, es decir que "
+"no se producirán problemas con las fechas guardadas con anterioridad."
+
+#: admin/menu-pages/class-settings-menu-page.php:313
+msgid "The page where the search results will be displayed."
+msgstr "La página donde se mostrarán los resultados de búsqueda."
+
+#: admin/menu-pages/class-settings-menu-page.php:348
+msgid ""
+"User to send email notifications when internal events occur such as the "
+"creation of a reservation."
+msgstr ""
+"Usuario al cual enviar las notificaciones por correo electrónico cuando se "
+"produzcan eventos internos, como la creación de una reserva."
+
+#: admin/meta-boxes/class-accommodation-cmb.php:47
+msgid "Capacity"
+msgstr "Capacidad"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:57
+#: admin/meta-boxes/class-booking-cmb.php:224
+#: admin/meta-boxes/class-promotion-cmb.php:90
+#: admin/meta-boxes/class-promotion-cmb.php:158
+#: includes/post-types/class-season-cpt.php:48
+#: includes/shortcodes/class-booking-preview-csc.php:237
+msgid "Season"
+msgstr "Temporada"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:68
+msgid "Pages"
+msgstr "Páginas"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:75
+msgid "Booking settings"
+msgstr "Ajustes de las reservas"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:93
+msgid "Maximum adults"
+msgstr "Máximo de adultos"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:101
+msgid "Maximum children"
+msgstr "Máximo de niños"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:123
+msgid "Price per night"
+msgstr "Precio por noche"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:149
+msgid "Accommodation page"
+msgstr "Página del alojamiento"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:167
+msgid "Booking preview page"
+msgstr "Página de vista previa de la reserva"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:185
+msgid "Booking received page"
+msgstr "Página de reserva recibida"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:219
+msgid "Exclusivity of the last day"
+msgstr "Exclusividad del último día"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:224
+msgid "Activated, the last day is not shared"
+msgstr "Activado, no se comparte el último día"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:227
+msgid "Deactivated, can be booked on the last day"
+msgstr "Desactivado, se puede reservar en el último día"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:231
+msgid ""
+"Ideal for accommodation where it is possible that the day of check-out of a "
+"client is also the day of check-in of a new client."
+msgstr ""
+"Ideal para alojamientos donde es posible que el día de check-out de un "
+"cliente sea también el día de check-in de un nuevo cliente."
+
+#: admin/meta-boxes/class-accommodation-cmb.php:237
+msgid "Minimum number of nights"
+msgstr "Número mínimo de noches"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:242
+msgid ""
+"Minimum number of nights that a visitor or client can select for a "
+"reservation."
+msgstr ""
+"Número mínimo de noches que un visitante o cliente puede seleccionar para "
+"una reserva."
+
+#: admin/meta-boxes/class-accommodation-cmb.php:298
+msgid "Maximum Adults"
+msgstr "Máximo de Adultos"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:299
+msgid "Maximum Children"
+msgstr "Máximo de Niños"
+
+#: admin/meta-boxes/class-booking-cmb.php:44
+msgid "Pending"
+msgstr "Pendiente"
+
+#: admin/meta-boxes/class-booking-cmb.php:45
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#: admin/meta-boxes/class-booking-cmb.php:46
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: admin/meta-boxes/class-booking-cmb.php:58
+#: includes/shortcodes/class-booking-preview-csc.php:166
+msgid "Booking details"
+msgstr "Detalles de la reserva"
+
+#: admin/meta-boxes/class-booking-cmb.php:65
+msgid "Billing details"
+msgstr "Detalles de facturación"
+
+#: admin/meta-boxes/class-booking-cmb.php:101
+#: admin/meta-boxes/class-booking-cmb.php:417
+#: includes/post-types/class-customer-cpt.php:48
+msgid "Customer"
+msgstr "Cliente"
+
+#: admin/meta-boxes/class-booking-cmb.php:120
+#: admin/meta-boxes/class-booking-cmb.php:416
+#: admin/meta-boxes/class-contact-log-cmb.php:184
+#: admin/meta-boxes/class-promotion-cmb.php:72
+#: admin/meta-boxes/class-promotion-cmb.php:157
+#: includes/post-types/class-accommodation-cpt.php:48
+#: includes/shortcodes/class-booking-preview-csc.php:171
+#: includes/shortcodes/class-promotions-csc.php:144
+msgid "Accommodation"
+msgstr "Alojamiento"
+
+#: admin/meta-boxes/class-booking-cmb.php:138
+#: admin/meta-boxes/class-contact-log-cmb.php:204
+#: admin/meta-boxes/class-contact-log-cmb.php:272
+#: includes/shortcodes/class-booking-calendar-csc.php:401
+#: includes/shortcodes/class-booking-calendar-csc.php:403
+#: includes/shortcodes/class-booking-preview-csc.php:189
+#: includes/shortcodes/class-search-accommodations-csc.php:142
+#: includes/shortcodes/class-search-accommodations-csc.php:144
+msgid "Number of adults"
+msgstr "Cantidad de adultos"
+
+#: admin/meta-boxes/class-booking-cmb.php:146
+#: admin/meta-boxes/class-contact-log-cmb.php:214
+#: admin/meta-boxes/class-contact-log-cmb.php:282
+#: includes/shortcodes/class-booking-calendar-csc.php:407
+#: includes/shortcodes/class-booking-calendar-csc.php:409
+#: includes/shortcodes/class-booking-preview-csc.php:195
+#: includes/shortcodes/class-search-accommodations-csc.php:150
+#: includes/shortcodes/class-search-accommodations-csc.php:152
+msgid "Number of children"
+msgstr "Cantidad de niños"
+
+#: admin/meta-boxes/class-booking-cmb.php:154
+#: admin/meta-boxes/class-booking-cmb.php:418
+#: includes/shortcodes/class-booking-preview-csc.php:177
+msgid "Check-in date"
+msgstr "Fecha de llegada"
+
+#: admin/meta-boxes/class-booking-cmb.php:158
+#: admin/meta-boxes/class-booking-cmb.php:166
+#: admin/meta-boxes/class-season-cmb.php:76
+#: admin/meta-boxes/class-season-cmb.php:84
+#: includes/shortcodes/class-booking-calendar-csc.php:362
+#: includes/shortcodes/class-booking-calendar-csc.php:395
+#: includes/shortcodes/class-booking-calendar-csc.php:397
+#: includes/shortcodes/class-search-accommodations-csc.php:129
+#: includes/shortcodes/class-search-accommodations-csc.php:137
+msgid "Select Date.."
+msgstr "Seleccione una fecha.."
+
+#: admin/meta-boxes/class-booking-cmb.php:163
+#: includes/shortcodes/class-booking-preview-csc.php:183
+msgid "Check-out date"
+msgstr "Fecha de partida"
+
+#: admin/meta-boxes/class-booking-cmb.php:171
+#: admin/meta-boxes/class-booking-cmb.php:421
+msgid "Status"
+msgstr "Estado"
+
+#: admin/meta-boxes/class-booking-cmb.php:216
+#: admin/meta-boxes/class-promotion-cmb.php:108
+#: includes/shortcodes/class-promotions-csc.php:145
+msgid "Number of nights"
+msgstr "Número de noches"
+
+#: admin/meta-boxes/class-booking-cmb.php:232
+#: includes/shortcodes/class-booking-preview-csc.php:254
+msgid "Applies"
+msgstr "Se aplica"
+
+#: admin/meta-boxes/class-booking-cmb.php:246
+msgid "Normal nights without promotion"
+msgstr "Noches normales sin promoción"
+
+#: admin/meta-boxes/class-booking-cmb.php:253
+#: includes/post-types/class-promotion-cpt.php:48
+#: includes/shortcodes/class-booking-preview-csc.php:245
+msgid "Promotion"
+msgstr "Promoción"
+
+#: admin/meta-boxes/class-booking-cmb.php:259
+msgid "Normal nights"
+msgstr "Noches normales"
+
+#: admin/meta-boxes/class-booking-cmb.php:271
+msgid "Booking total price"
+msgstr "Precio total de la reserva"
+
+#: admin/meta-boxes/class-booking-cmb.php:277
+msgid "When saving the changes the calculation will be made automatically"
+msgstr "Al guardar los cambios el cálculo se realizará automáticamente"
+
+#: admin/meta-boxes/class-booking-cmb.php:419
+#: admin/meta-boxes/class-promotion-cmb.php:159
+msgid "Num. of nights"
+msgstr "Núm. de noches"
+
+#: admin/meta-boxes/class-booking-cmb.php:420
+#: admin/meta-boxes/class-promotion-cmb.php:160
+#: includes/shortcodes/class-booking-preview-csc.php:269
+#: includes/shortcodes/class-promotions-csc.php:146
+msgid "Price"
+msgstr "Precio"
+
+#: admin/meta-boxes/class-booking-cmb.php:518
+msgid "The selected date does not belong to an active season."
+msgstr "La fecha seleccionada no pertenece a una temporada activa."
+
+#: admin/meta-boxes/class-booking-cmb.php:526
+msgid "The selected date is not available for reservations."
+msgstr "La fecha seleccionada no se encuentra disponible para reservas."
+
+#: admin/meta-boxes/class-contact-log-cmb.php:47
+msgid "Contact details"
+msgstr "Detalles del contacto"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:54
+msgid "Queries details"
+msgstr "Detalles de las consultas"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:80
+#: admin/meta-boxes/class-contact-log-cmb.php:83
+#: admin/meta-boxes/class-contact-log-cmb.php:338
+#: admin/meta-boxes/class-customer-cmb.php:64
+#: admin/meta-boxes/class-customer-cmb.php:95
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:88
+#: admin/meta-boxes/class-contact-log-cmb.php:339
+msgid "Last query date"
+msgstr "Fecha de la última consulta"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:96
+msgid "Number of queries"
+msgstr "Número de consultas"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:119
+msgid "Booking preview"
+msgstr "Vista previa de reserva"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:120
+msgid "Accommodation search"
+msgstr "Búsqueda de alojamiento"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:134
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:171
+#: admin/meta-boxes/class-contact-log-cmb.php:250
+msgid "Query date"
+msgstr "Fecha de la consulta"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:194
+#: admin/meta-boxes/class-contact-log-cmb.php:262
+msgid "Selected date"
+msgstr "Fecha seleccionada"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:224
+#: admin/meta-boxes/class-contact-log-cmb.php:292
+msgid "Name"
+msgstr "Nombre"
+
+#: admin/meta-boxes/class-contact-log-cmb.php:340
+msgid "Queries"
+msgstr "Consultas"
+
+#: admin/meta-boxes/class-customer-cmb.php:47
+msgid "Customer details"
+msgstr "Detalles del cliente"
+
+#: admin/meta-boxes/class-promotion-cmb.php:47
+msgid "Promotion details"
+msgstr "Detalles de la promoción"
+
+#: admin/meta-boxes/class-promotion-cmb.php:116
+msgid "Promotion price"
+msgstr "Precio de la promoción"
+
+#: admin/meta-boxes/class-season-cmb.php:47
+msgid "Season details"
+msgstr "Detalles de la temporada"
+
+#: admin/meta-boxes/class-season-cmb.php:72
+#: admin/meta-boxes/class-season-cmb.php:123
+msgid "Start date"
+msgstr "Fecha de apertura"
+
+#: admin/meta-boxes/class-season-cmb.php:81
+#: admin/meta-boxes/class-season-cmb.php:124
+msgid "End date"
+msgstr "Fecha de cierre"
+
+#: includes/post-types/class-accommodation-cpt.php:47
+#: includes/post-types/class-accommodation-cpt.php:57
+msgid "Accommodations"
+msgstr "Alojamientos"
+
+#: includes/post-types/class-accommodation-cpt.php:49
+msgctxt "Add New Accommodation"
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: includes/post-types/class-accommodation-cpt.php:50
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: includes/post-types/class-accommodation-cpt.php:51
+msgid "Edit Accommodation"
+msgstr "Editar Alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:52
+msgid "New Accommodation"
+msgstr "Nuevo Alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:53
+msgid "View Accommodation"
+msgstr "Ver Alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:54
+msgid "Search Accommodation"
+msgstr "Buscar Alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:55
+msgid "No accommodations found"
+msgstr "No se encontraron Alojamientos"
+
+#: includes/post-types/class-accommodation-cpt.php:56
+msgid "No accommodations found in Trash"
+msgstr "No se encontraron Alojamientos en la papelera"
+
+#: includes/post-types/class-accommodation-cpt.php:58
+msgid "Insert into accommodation description"
+msgstr "Insertar en la descripción del alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:59
+msgid "Uploaded to this accommodation"
+msgstr "Subido a este alojamiento"
+
+#: includes/post-types/class-accommodation-cpt.php:64
+msgid "This is where you can add new accommodations to your hotel."
+msgstr "Aquí es donde puede añadir nuevos alojamientos a su hotel."
+
+#: includes/post-types/class-booking-cpt.php:49
+#: includes/shortcodes/class-booking-received-csc.php:244
+msgid "Booking"
+msgstr "Reserva"
+
+#: includes/post-types/class-booking-cpt.php:50
+msgctxt "Add New Booking"
+msgid "Add New"
+msgstr "Añadir nueva"
+
+#: includes/post-types/class-booking-cpt.php:51
+msgid "Add New Booking"
+msgstr "Añadir nueva reserva"
+
+#: includes/post-types/class-booking-cpt.php:52
+msgid "Edit Booking"
+msgstr "Editar reserva"
+
+#: includes/post-types/class-booking-cpt.php:53
+msgid "New Booking"
+msgstr "Nueva reserva"
+
+#: includes/post-types/class-booking-cpt.php:54
+msgid "View Booking"
+msgstr "Ver la reserva"
+
+#: includes/post-types/class-booking-cpt.php:55
+msgid "Search Booking"
+msgstr "Buscar reservas"
+
+#: includes/post-types/class-booking-cpt.php:56
+msgid "No bookings found"
+msgstr "No se encontraron reservas"
+
+#: includes/post-types/class-booking-cpt.php:57
+msgid "No bookings found in Trash"
+msgstr "No se encontraron reservas en la papelera"
+
+#: includes/post-types/class-booking-cpt.php:58
+msgid "All Bookings"
+msgstr "Todas las reservas"
+
+#: includes/post-types/class-booking-cpt.php:59
+msgid "Insert into booking description"
+msgstr "Insertar en la descripción de la reserva"
+
+#: includes/post-types/class-booking-cpt.php:60
+msgid "Uploaded to this booking"
+msgstr "Subido a esta reserva"
+
+#: includes/post-types/class-contact-log-cpt.php:47
+#: includes/post-types/class-contact-log-cpt.php:48
+#: includes/post-types/class-contact-log-cpt.php:57
+msgid "Contact Log"
+msgstr "Registro de contactos"
+
+#: includes/post-types/class-contact-log-cpt.php:49
+msgctxt "Add New Contact Log"
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: includes/post-types/class-contact-log-cpt.php:50
+msgid "Add New Contact"
+msgstr "Añadir nuevo contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:51
+msgid "Edit Contact"
+msgstr "Editar contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:52
+msgid "New Contact"
+msgstr "Nuevo contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:53
+msgid "View Contact"
+msgstr "Ver contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:54
+msgid "Search Contact"
+msgstr "Buscar contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:55
+msgid "No contacts found"
+msgstr "No se encontraron contactos"
+
+#: includes/post-types/class-contact-log-cpt.php:56
+msgid "No contacts found in Trash"
+msgstr "No se encontraron contactos en la papelera"
+
+#: includes/post-types/class-contact-log-cpt.php:58
+msgid "Insert into contact description"
+msgstr "Insertar en la descripción del contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:59
+msgid "Uploaded to this contact"
+msgstr "Subido a este contacto"
+
+#: includes/post-types/class-contact-log-cpt.php:64
+msgid "This is where you can add new contacts."
+msgstr "Aquí es donde puedes añadir nuevos contactos."
+
+#: includes/post-types/class-customer-cpt.php:47
+#: includes/post-types/class-customer-cpt.php:57
+msgid "Customers"
+msgstr "Clientes"
+
+#: includes/post-types/class-customer-cpt.php:49
+msgctxt "Add New Customer"
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: includes/post-types/class-customer-cpt.php:50
+msgid "Add New Customer"
+msgstr "Añadir nuevo cliente"
+
+#: includes/post-types/class-customer-cpt.php:51
+msgid "Edit Customer"
+msgstr "Editar cliente"
+
+#: includes/post-types/class-customer-cpt.php:52
+msgid "New Customer"
+msgstr "Nuevo cliente"
+
+#: includes/post-types/class-customer-cpt.php:53
+msgid "View Customer"
+msgstr "Ver cliente"
+
+#: includes/post-types/class-customer-cpt.php:54
+msgid "Search Customer"
+msgstr "Buscar cliente"
+
+#: includes/post-types/class-customer-cpt.php:55
+msgid "No customers found"
+msgstr "No se encontraron clientes"
+
+#: includes/post-types/class-customer-cpt.php:56
+msgid "No customers found in Trash"
+msgstr "No se encontraron clientes en la papelera"
+
+#: includes/post-types/class-customer-cpt.php:58
+msgid "Insert into customer description"
+msgstr "Insertar en la descripción del cliente"
+
+#: includes/post-types/class-customer-cpt.php:59
+msgid "Uploaded to this customer"
+msgstr "Subido a este cliente"
+
+#: includes/post-types/class-customer-cpt.php:64
+msgid "This is where you can add new customers to your hotel."
+msgstr "Aquí es donde puede añadir nuevos clientes a su hotel."
+
+#: includes/post-types/class-promotion-cpt.php:47
+#: includes/post-types/class-promotion-cpt.php:57
+#: includes/shortcodes/class-booking-calendar-csc.php:224
+msgid "Promotions"
+msgstr "Promociones"
+
+#: includes/post-types/class-promotion-cpt.php:49
+#: includes/post-types/class-season-cpt.php:49
+msgctxt "Add New Season"
+msgid "Add New"
+msgstr "Añadir nueva"
+
+#: includes/post-types/class-promotion-cpt.php:50
+msgid "Add New Promotion"
+msgstr "Añadir nueva promoción"
+
+#: includes/post-types/class-promotion-cpt.php:51
+msgid "Edit Promotion"
+msgstr "Editar promoción"
+
+#: includes/post-types/class-promotion-cpt.php:52
+msgid "New Promotion"
+msgstr "Nueva promoción"
+
+#: includes/post-types/class-promotion-cpt.php:53
+msgid "View Promotion"
+msgstr "Ver promoción"
+
+#: includes/post-types/class-promotion-cpt.php:54
+msgid "Search Promotion"
+msgstr "Buscar promociones"
+
+#: includes/post-types/class-promotion-cpt.php:55
+msgid "No promotions found"
+msgstr "No se encontraron promociones"
+
+#: includes/post-types/class-promotion-cpt.php:56
+msgid "No promotions found in Trash"
+msgstr "No se encontraron promociones en la papelera"
+
+#: includes/post-types/class-promotion-cpt.php:58
+msgid "Insert into promotion description"
+msgstr "Insertar en la descripción de la promoción"
+
+#: includes/post-types/class-promotion-cpt.php:59
+msgid "Uploaded to this promotion"
+msgstr "Subido a esta promoción"
+
+#: includes/post-types/class-promotion-cpt.php:64
+msgid "This is where you can add new promotions."
+msgstr "Aquí es donde puedes añadir nuevas promociones."
+
+#: includes/post-types/class-season-cpt.php:47
+#: includes/post-types/class-season-cpt.php:57
+#: includes/shortcodes/class-booking-calendar-csc.php:184
+msgid "Seasons"
+msgstr "Temporadas"
+
+#: includes/post-types/class-season-cpt.php:50
+msgid "Add New Season"
+msgstr "Añadir nueva temporada"
+
+#: includes/post-types/class-season-cpt.php:51
+msgid "Edit Season"
+msgstr "Editar temporada"
+
+#: includes/post-types/class-season-cpt.php:52
+msgid "New Season"
+msgstr "Nueva temporada"
+
+#: includes/post-types/class-season-cpt.php:53
+msgid "View Season"
+msgstr "Ver temporada"
+
+#: includes/post-types/class-season-cpt.php:54
+msgid "Search Season"
+msgstr "Buscar temporadas"
+
+#: includes/post-types/class-season-cpt.php:55
+msgid "No seasons found"
+msgstr "No se encontraron temporadas"
+
+#: includes/post-types/class-season-cpt.php:56
+msgid "No seasons found in Trash"
+msgstr "No se encontraron temporadas en la papelera"
+
+#: includes/post-types/class-season-cpt.php:58
+msgid "Insert into season description"
+msgstr "Insertar en la descripción de la temporada"
+
+#: includes/post-types/class-season-cpt.php:59
+msgid "Uploaded to this season"
+msgstr "Subido a esta temporada"
+
+#: includes/post-types/class-season-cpt.php:64
+msgid "This is where you can add new seasons."
+msgstr "Aquí es donde puedes añadir nuevas temporadas."
+
+#: includes/shortcodes/class-booking-calendar-csc.php:116
+msgid "Invalid accommodation"
+msgstr "Alojamiento inválido"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:166
+#: includes/shortcodes/class-booking-preview-csc.php:239
+msgid "per night"
+msgstr "por noche"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:186
+msgid "No active seasons were found with available dates."
+msgstr "No se encontraron temporadas activas con fechas disponibles."
+
+#: includes/shortcodes/class-booking-calendar-csc.php:219
+#: includes/shortcodes/class-booking-preview-csc.php:247
+#: includes/shortcodes/class-promotions-csc.php:144
+#: includes/shortcodes/class-promotions-csc.php:145
+msgid "nights"
+msgstr "noches"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:219
+msgid "for"
+msgstr "por"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:226
+#: includes/shortcodes/class-promotions-csc.php:167
+msgid "No active promotions were found with available dates."
+msgstr "No se encontraron promociones activas con fechas disponibles."
+
+#: includes/shortcodes/class-booking-calendar-csc.php:352
+msgid "Availability calendar"
+msgstr "Calendario de disponibilidad"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:370
+#, php-format
+msgid "The minimum number of nights is %s (%s days)."
+msgstr "El número mínimo de noches es %s (%s días)."
+
+#: includes/shortcodes/class-booking-calendar-csc.php:388
+msgid "Booking form"
+msgstr "Formulario de reserva"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:413
+#: includes/shortcodes/class-booking-calendar-csc.php:415
+#: includes/shortcodes/class-search-accommodations-csc.php:158
+#: includes/shortcodes/class-search-accommodations-csc.php:160
+msgid "Your name"
+msgstr "Su nombre"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:419
+#: includes/shortcodes/class-booking-calendar-csc.php:421
+#: includes/shortcodes/class-search-accommodations-csc.php:164
+#: includes/shortcodes/class-search-accommodations-csc.php:166
+msgid "Your email"
+msgstr "Su email"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:426
+msgid "Preview booking"
+msgstr "Previsualizar la reserva"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:447
+msgid "Out of season"
+msgstr "Fuera de temporada"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:448
+msgid "Date already reserved"
+msgstr "Fecha reservada"
+
+#: includes/shortcodes/class-booking-calendar-csc.php:449
+msgid "Select your dates in the calendar"
+msgstr "Seleccione sus fechas en el calendario"
+
+#: includes/shortcodes/class-booking-preview-csc.php:60
+#: includes/shortcodes/class-booking-received-csc.php:57
+#: includes/shortcodes/class-promotions-csc.php:53
+msgid "Our current promotions"
+msgstr "Nuestra promociones actuales"
+
+#: includes/shortcodes/class-booking-preview-csc.php:232
+msgid "Price details"
+msgstr "Detalles del precio"
+
+#: includes/shortcodes/class-booking-preview-csc.php:263
+#, php-format
+msgid "%s night"
+msgid_plural "%s nights"
+msgstr[0] "%s noche"
+msgstr[1] "%s noches"
+
+#: includes/shortcodes/class-booking-preview-csc.php:291
+msgid "Confirm booking"
+msgstr "Confirmar la reserva"
+
+#: includes/shortcodes/class-booking-preview-csc.php:296
+#: includes/shortcodes/class-booking-received-csc.php:120
+msgid "The sent data is not valid"
+msgstr "Los datos enviados no son válidos"
+
+#: includes/shortcodes/class-booking-received-csc.php:194
+msgid ""
+"Sorry, the dates were edited internally and now the dates you selected no "
+"longer belong to an active season."
+msgstr ""
+"Lo sentimos, las fechas fueron editadas internamente y ahora las fechas que "
+"seleccionó ya no pertenecen a una temporada activa."
+
+#: includes/shortcodes/class-booking-received-csc.php:203
+msgid ""
+"Sorry, another reservation was made seconds before this and now the dates "
+"you selected are no longer available."
+msgstr ""
+"Lo sentimos, otra reserva se realizó segundos antes de que esta ingrese al "
+"proceso de confirmación y ahora las fechas que seleccionó ya no se "
+"encuentran disponibles."
+
+#: includes/shortcodes/class-booking-received-csc.php:216
+msgid ""
+"You can go back to the calendar and select a different date or accommodation."
+msgstr ""
+"Puede volver al calendario y seleccionar una fecha o alojamiento diferente."
+
+#: includes/shortcodes/class-booking-received-csc.php:259
+msgid "Your reservation was received successfully!"
+msgstr "¡Su reserva fue recibida con éxito!"
+
+#: includes/shortcodes/class-booking-received-csc.php:263
+msgid "We will send you an email with the details of the booking."
+msgstr ""
+"Le enviaremos un correo electrónico con los detalles de la reservación."
+
+#: includes/shortcodes/class-promotions-csc.php:153
+msgid "More about this accommodation"
+msgstr "Más acerca de este alojamiento"
+
+#: includes/shortcodes/class-search-accommodations-csc.php:115
+#: includes/shortcodes/class-search-results-csc.php:131
+msgid "Search accommodations"
+msgstr "Buscar Alojamientos"
+
+#: includes/shortcodes/class-search-accommodations-csc.php:172
+msgid "Search"
+msgstr "Buscar"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:45
+msgctxt "taxonomy general name"
+msgid "Accommodation Types"
+msgstr "Tipos de Alojamientos"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:46
+msgctxt "taxonomy singular name"
+msgid "Accommodation Type"
+msgstr "Tipo de Alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:47
+msgid "Search Accommodation Types"
+msgstr "Buscar tipos de alojamientos"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:48
+msgid "All Types"
+msgstr "Todos los tipos"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:49
+msgid "Parent Accommodation Type"
+msgstr "Padre del tipo de alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:50
+msgid "Parent Accommodation Type:"
+msgstr "Padre del Tipo de Alojamiento:"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:51
+msgid "Edit Accommodation Type"
+msgstr "Editar tipo de alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:52
+msgid "Update Accommodation Type"
+msgstr "Actualizar el tipo de alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:53
+msgid "Add New Accommodation Type"
+msgstr "Añadir un nuevo tipo de alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:54
+msgid "New Accommodation Type Name"
+msgstr "Nuevo nombre de tipo de alojamiento"
+
+#: includes/taxonomies/class-accommodation-type-ct.php:55
+msgid "Accommodation Type"
+msgstr "Tipo de alojamiento"
+
+#, fuzzy
+#~| msgid "Add New Contact"
+#~ msgctxt "Add New Season"
+#~ msgid "Add New Contact Log"
+#~ msgstr "Añadir nuevo contacto"
+
+#, fuzzy
+#~| msgid "Insert into booking description"
+#~ msgid "Settings description."
+#~ msgstr "Insertar en la descripción de la reserva"
+
+#, fuzzy
+#~| msgid "Settings"
+#~ msgid "Settings subtitle."
+#~ msgstr "Ajustes"
+
+#~ msgid "Add New Accommodation"
+#~ msgstr "Agregar Nuevo Alojamiento"
+
+#~ msgctxt "Add New Booking"
+#~ msgid "Add New Booking"
+#~ msgstr "Añadir nueva reserva"
+
+#~ msgid "Preview a booking"
+#~ msgstr "Vista previa de la reserva"
+
+#~ msgid "Number of childs"
+#~ msgstr "Cantidad de niños"
+
+#~ msgid "Booking confirmed page"
+#~ msgstr "Página de reserva confirmada"
+
+#, fuzzy
+#~| msgid "Promotion"
+#~ msgid "Promoción"
+#~ msgstr "Promoción"
+
+#, fuzzy
+#~| msgid "Preview booking"
+#~ msgid "Confirm the preview booking"
+#~ msgstr "Previsualizar la reserva"
+
+#~ msgid "Does not apply"
+#~ msgstr "No se aplica"
+
+#, fuzzy
+#~| msgid "Season"
+#~ msgid "Season: "
+#~ msgstr "Temporada"
+
+#~ msgid "Help"
+#~ msgstr "Ayuda"

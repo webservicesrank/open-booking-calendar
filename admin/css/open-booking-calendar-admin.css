@@ -1,0 +1,23 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+#adminmenu #toplevel_page_open-booking-calendar .wp-submenu li:nth-child(4) a,
+#adminmenu #toplevel_page_open-booking-calendar .wp-submenu li:nth-child(7) a {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 6px;
+}
+
+.form-table td {
+    line-height: 24px;
+}
+.inner-form-table {
+    border-left: 3px #dfdfdf solid;
+    padding: 5px 20px;
+}
+.inner-form-table th,
+.inner-form-table td {
+    padding: 5px 10px 5px 0;
+}
