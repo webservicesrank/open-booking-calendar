@@ -29,3 +29,6 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+// Delete all options
+delete_option('obcal_options');

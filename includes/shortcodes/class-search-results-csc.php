@@ -26,28 +26,17 @@ class SearchResults_CSC
     private $version;
 
     /**
-	 * The contact log custom post type object.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $contact_log_cpt    The contact log custom post type object.
-	 */
-    private $contact_log_cpt;
-
-    /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
      * @param      string    $open_booking_calendar       The name of the plugin.
      * @param      string    $version    The version of this plugin.
      */
-    public function __construct($open_booking_calendar, $version, $contact_log_cpt)
+    public function __construct($open_booking_calendar, $version)
     {
 
         $this->open_booking_calendar = $open_booking_calendar;
         $this->version = $version;
-
-        $this->contact_log_cpt = $contact_log_cpt;
 
     }
     
@@ -95,12 +84,12 @@ class SearchResults_CSC
             if (array_key_exists("us_name", $_POST) && array_key_exists("us_email", $_POST)) {
 
                 // Register Contact in the Log
-                $contact_id = $this->contact_log_cpt->insert_contact($_POST['us_name'], $_POST['us_email']);
+                $contact_id = apply_filters('obcal_contact_log_insert_contact', sanitize_text_field($_POST['us_name']), sanitize_email($_POST['us_email']));
 
                 if (!empty($contact_id)) {
 
-                    // Register Query in the Log 
-                    $this->contact_log_cpt->insert_query_log($contact_id, 'search_results', $_POST);
+                    // Register Query in the Log
+                    do_action('obcal_contact_log_insert_query_log', $contact_id, 'search_results', $_POST);
 
                 }
 
@@ -142,11 +131,67 @@ class SearchResults_CSC
         // Get date format
         $options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 
+        /**
+         * Get POST values
+         */
+
+        $selected_date = sanitize_text_field($_POST['selected_date']);
+
+        /**
+         * Get check-in and check-out dates from $selected_date, regardless of the date format.
+         * It is separated by detecting the blank spaces in the center, for example in "date_any_format to date_any_format".
+         */
+
+        // Get the position of the first and second blank space in $selected_date
+        $selected_date_pos_first_bsp = strpos($selected_date, ' ');
+        $selected_date_pos_second_bsp = strpos($selected_date, ' ', $selected_date_pos_first_bsp + 1);
+
+        // Get check-in and check-out dates from $selected_date
+        $check_in_date = substr($selected_date, 0, $selected_date_pos_first_bsp);
+        $check_out_date = substr($selected_date, $selected_date_pos_second_bsp + 1, strlen($check_in_date));
+
+        // Get dates as objects
+        $search_check_in_date = new DateTime($check_in_date);
+        $search_check_out_date = new DateTime($check_out_date);
+
+        /**
+         * Find active seasons in the search date period
+         */
+
+        $relevant_season_ids = [];
+
+        $now_date = new DateTime(date_i18n($options_date_format));
+
+        $seasons = get_posts(['post_type' => 'obcal_season', 'numberposts' => -1]);
+        foreach ($seasons as $season) {
+            $season_start_date = new DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
+            $season_end_date = new DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
+
+            // If is a current an published season
+            if ($season->post_status == "publish" && $season_end_date >= $now_date) {
+
+                // If is a season with intersections with the search date period
+                if ( ($search_check_in_date >= $season_start_date && $search_check_in_date <= $season_end_date) || ($search_check_out_date >= $season_start_date && $search_check_out_date <= $season_end_date) ) {
+
+                    // Register relevant season
+                    $relevant_season_ids[] = $season->ID;
+
+                }
+
+            }
+        }
+
+        /**
+         * 
+         */
+
+        $num_accommodations = 0;
+
         $accommodations = get_posts(['post_type' => 'obcal_accommodation', 'numberposts' => -1]);
 
         // Title
         if ($obcal_atts['show_title'] == true) {
-            $o .= '<h3>' . __('Search accommodations', 'open-booking-calendar') . '</h3>';
+            $o .= '<h3>' . esc_html__('Search accommodations', 'open-booking-calendar') . '</h3>';
         }
 
         $o .= '<div class="obcal-form">';
@@ -157,24 +202,49 @@ class SearchResults_CSC
 
             if ($accommodation->post_status == "publish") {
 
-                $accommodation_url = esc_url(get_permalink($accommodation->ID));
+                $has_active_seasons = false;
 
-                $o .= '<tr><th scope="row">';
+                foreach ($relevant_season_ids as $relevant_season_id) {
 
-                $o .= '<a href="' . $accommodation_url . '">' . get_the_post_thumbnail( $accommodation->ID, 'post-thumbnail', array( 'class' => 'accommodation-img' ) ) . '</a>';
+                    $season_price_per_night = get_post_meta($accommodation->ID, "_obcal_accommodation_s{$relevant_season_id}_price_per_night", true);
 
-                $o .= '</th><td>';
+                    if (is_numeric($season_price_per_night) && $season_price_per_night > 0) {
+                        $has_active_seasons = true;
+                    }
 
-                $o .= '<a href="' . $accommodation_url . '"><h3>' . esc_html($accommodation->post_title) . '</h3></a>';
-                $o .= '<p>' . esc_html($accommodation->post_excerpt) . '</p>';
+                }
 
-                $o .= '</td></tr>';
+                if ($has_active_seasons) {
 
+                    $accommodation_url = esc_url(get_permalink($accommodation->ID));
+
+                    $o .= '<tr><th scope="row">';
+
+                    $o .= '<a href="' . $accommodation_url . '">' . get_the_post_thumbnail( $accommodation->ID, 'post-thumbnail', array( 'class' => 'accommodation-img' ) ) . '</a>';
+
+                    $o .= '</th><td>';
+
+                    $o .= '<a href="' . $accommodation_url . '"><h3>' . esc_html($accommodation->post_title) . '</h3></a>';
+                    $o .= '<p>' . esc_html($accommodation->post_excerpt) . '</p>';
+
+                    $o .= '</td></tr>';
+
+                    $num_accommodations++;
+
+                }
             }
 
         }
 
         $o .= '</table>';
+
+        if ($num_accommodations == 0) {
+
+            $o .= '<div class="obcal-notice obcal-notice-info availability-error">';
+            $o .= esc_html__('There are currently no accommodations available in the selected dates period.', 'open-booking-calendar');
+            $o .= '</div>';
+
+        }
 
         $o .= '</div>';
 

@@ -99,8 +99,10 @@ class BookingCalendar_CSC
             // Show seasons
             $o .= $this->content_seasons($obcal_atts, $accommodation);
 
-            // Show promotions
-            $o .= $this->content_promotions($obcal_atts, $accommodation);
+            if( defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ) {
+                // Show promotions
+                $o .= $this->content_promotions($obcal_atts, $accommodation);
+            }
 
             // Show availability calendar
             $o .= $this->content_calendar($obcal_atts, $accommodation);
@@ -112,7 +114,7 @@ class BookingCalendar_CSC
 
         // Accommodation error message
         if (!$is_valid_accommodation) {
-            $o .= "<p>" . __('Invalid accommodation', 'open-booking-calendar') . "</p>";
+            $o .= "<p>" . esc_html__('Invalid accommodation', 'open-booking-calendar') . "</p>";
         }
 
         // enclosing tags
@@ -158,11 +160,11 @@ class BookingCalendar_CSC
 
             $season_price_per_night = get_post_meta($accommodation->ID, "_obcal_accommodation_s{$season->ID}_price_per_night", true);
 
-            if ($season->post_status == "publish" && $season_end_date >= $now_date) {
+            if ($season->post_status == "publish" && $season_price_per_night > 0 && $season_end_date >= $now_date) {
                 // Register season ID
                 $this->active_season_ids[] = $season->ID;
                 // Generate the season item to be printed
-                $o_seasons .= "<li>" . $season->post_title . ($obcal_atts['show_seasons_dates'] == true ? '<span class="season-dates">' . "({$season_start_date->format($options_date_format)} - {$season_end_date->format($options_date_format)})</span>" : "") . ($obcal_atts['show_seasons_price'] == true ? '<span class="season-price">$' . $season_price_per_night . " " . __('per night', 'open-booking-calendar') . "</span>" : "") . "</li>";
+                $o_seasons .= "<li>" . esc_html($season->post_title) . ($obcal_atts['show_seasons_dates'] == true ? '<span class="season-dates">' . esc_html("({$season_start_date->format($options_date_format)} - {$season_end_date->format($options_date_format)})") . "</span>" : "") . ($obcal_atts['show_seasons_price'] == true ? '<span class="season-price">$' . esc_html($season_price_per_night . " " . __('per night', 'open-booking-calendar')) . "</span>" : "") . "</li>";
 
                 // Register max_date for flatpickr
                 if ($season_end_date > $this->max_date) {
@@ -180,9 +182,9 @@ class BookingCalendar_CSC
         }
 
         if ($obcal_atts['show_seasons'] == true) {
-            $o .= '<div class="obcal-seasons"><h3>' . __('Seasons', 'open-booking-calendar') . '</h3>';
+            $o .= '<div class="obcal-seasons"><h3>' . esc_html__('Seasons', 'open-booking-calendar') . '</h3>';
             if (empty($o_seasons)) {
-                $o .= '<p>' . __('No active seasons were found with available dates.', 'open-booking-calendar') . '</p>';
+                $o .= '<p>' . esc_html__('No active seasons were found with available dates.', 'open-booking-calendar') . '</p>';
             } else {
                 $o .= '<ul>';
                 $o .= $o_seasons;
@@ -212,21 +214,24 @@ class BookingCalendar_CSC
 
             if ($promotion->post_status == "publish" && $promotion_accommodation_id == $accommodation->ID && in_array($promotion_season_id, $this->active_season_ids)) {
 
+                $promotion_season = get_post($promotion_season_id);
+
                 $promotion_num_nights = get_post_meta($promotion->ID, "_obcal_promotion_num_nights", true);
                 $promotion_total_price = get_post_meta($promotion->ID, "_obcal_promotion_total_price", true);
 
                 $o_promotions .= "<li>";
-                $o_promotions .= $promotion->post_title . ':<span class="promotion-num-nights">' . $promotion_num_nights . ' ' . __('nights', 'open-booking-calendar') . '</span>';
-                $o_promotions .= '<span class="promotion-price"> ' . __('for', 'open-booking-calendar') . ' $' . $promotion_total_price . '</span>';
+                $o_promotions .= esc_html($promotion->post_title) . ':<span class="promotion-num-nights">' . esc_html($promotion_num_nights . ' ' . __('nights', 'open-booking-calendar')) . '</span>';
+                $o_promotions .= '<span class="promotion-price"> ' . esc_html( __('for', 'open-booking-calendar') . ' $' . $promotion_total_price ) . '</span>';
+                $o_promotions .= '<span class="promotion-season"> ' . esc_html( '(' . __('Season', 'open-booking-calendar') . ': ' . $promotion_season->post_title ) . ')</span>';
                 $o_promotions .= "</li>";
 
             }
         }
 
         if ($obcal_atts['show_promotions'] == true) {
-            $o .= '<div class="obcal-promotions"><h3>' . __('Promotions', 'open-booking-calendar') . '</h3>';
+            $o .= '<div class="obcal-promotions"><h3>' . esc_html__('Promotions', 'open-booking-calendar') . '</h3>';
             if (empty($o_promotions)) {
-                $o .= '<p>' . __('No active promotions were found with available dates.', 'open-booking-calendar') . '</p>';
+                $o .= '<p>' . esc_html__('No active promotions were found with available dates.', 'open-booking-calendar') . '</p>';
             } else {
                 $o .= '<ul>';
                 $o .= $o_promotions;
@@ -356,7 +361,7 @@ class BookingCalendar_CSC
 		$options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 
         // calendar
-        $o .= '<div class="obcal-calendar"><h3>' . __('Availability calendar', 'open-booking-calendar') . '</h3>';
+        $o .= '<div class="obcal-calendar"><h3>' . esc_html__('Availability calendar', 'open-booking-calendar') . '</h3>';
         $o .= '<input type="hidden" id="obc_cal_inline" value="true">';
         $o .= '<input type="hidden" id="obc_cal_mode" value="range">';
         $o .= '<input type="hidden" id="obc_cal_dateFormat" value="' . esc_attr($options_date_format) . '">';
@@ -366,7 +371,7 @@ class BookingCalendar_CSC
         $o .= '<input type="hidden" id="obc_cal_disable" value="' . esc_attr(wp_json_encode($disable_ranges)) . '">';
         $o .= '<input type="hidden" id="obc_cal_reserved" value="' . esc_attr($flatpickr_reserved_dates) . '">';
         $o .= '<input type="hidden" id="obc_cal_minNumNights" value="' . esc_attr($flatpickr_min_num_nights) . '">';
-        $o .= '<input class="flatpickr flatpickr-input availability-calendar-input" type="text" placeholder="' . __('Select Date..', 'open-booking-calendar') . '" readonly="readonly">';
+        $o .= '<input class="flatpickr flatpickr-input availability-calendar-input" type="text" placeholder="' . esc_html__('Select Date..', 'open-booking-calendar') . '" readonly="readonly">';
         $o .= '</div>';
 
         /**
@@ -374,7 +379,7 @@ class BookingCalendar_CSC
          * Hidden by default
          */
         $o .= '<div class="obcal-notice obcal-notice-error min-num-nights-error">';
-        $o .= esc_html( sprintf( __( 'The minimum number of nights is %s (%s days).', 'open-booking-calendar' ), $flatpickr_min_num_nights, $flatpickr_min_num_nights + 1 ) );
+        $o .= sprintf( esc_html__( 'The minimum number of nights is %s (%s days).', 'open-booking-calendar' ), $flatpickr_min_num_nights, $flatpickr_min_num_nights + 1 );
         $o .= '</div>';
 
         return $o;
@@ -392,46 +397,46 @@ class BookingCalendar_CSC
         $booking_preview_page_id = get_post_meta($accommodation->ID, "_obcal_accommodation_booking_preview_page_id", true);
 
         $o .= '<div class="obcal-form">';
-        $o .= '<h3>' . __('Booking form', 'open-booking-calendar') . '</h3>';
+        $o .= '<h3>' . esc_html__('Booking form', 'open-booking-calendar') . '</h3>';
         $o .= '<form method="POST" action="' . esc_url(get_permalink($booking_preview_page_id)) . '">';
         $o .= wp_nonce_field('booking_form_nonce', '_wp_booking_form_nonce', true, false);
-        $o .= '<input type="hidden" name="accommodation_id" value="' . $accommodation->ID . '">';
+        $o .= '<input type="hidden" name="accommodation_id" value="' . esc_attr($accommodation->ID) . '">';
 
         $o .= '<table class="obcal-form-table">';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="selected_date">' . __('Select Date..', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="selected_date">' . esc_html__('Select Date..', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
-        $o .= '<div><input type="text" id="selected_date" name="selected_date" class="form-selected-date" readonly="readonly" required="required" placeholder="' . __('Select Date..', 'open-booking-calendar') . '" ></div>';
+        $o .= '<div><input type="text" id="selected_date" name="selected_date" class="form-selected-date" readonly="readonly" required="required" placeholder="' . esc_html__('Select Date..', 'open-booking-calendar') . '" ></div>';
         $o .= '</td></tr>';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="num_adults">' . __('Number of adults', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="num_adults">' . esc_html__('Number of adults', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
-        $o .= '<div><input type="number" min="1" id="num_adults" name="num_adults" placeholder="' . __('Number of adults', 'open-booking-calendar') . '" required="required"></div>';
+        $o .= '<div><input type="number" min="1" id="num_adults" name="num_adults" placeholder="' . esc_html__('Number of adults', 'open-booking-calendar') . '" required="required"></div>';
         $o .= '</td></tr>';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="num_children">' . __('Number of children', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="num_children">' . esc_html__('Number of children', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
-        $o .= '<div><input type="number" min="0" id="num_children" name="num_children" placeholder="' . __('Number of children', 'open-booking-calendar') . '" required="required" ></div>';
+        $o .= '<div><input type="number" min="0" id="num_children" name="num_children" placeholder="' . esc_html__('Number of children', 'open-booking-calendar') . '" required="required" ></div>';
         $o .= '</td></tr>';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="us_name">' . __('Your name', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="us_name">' . esc_html__('Your name', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
-        $o .= '<div><input type="text" id="us_name" name="us_name" placeholder="' . __('Your name', 'open-booking-calendar') . '" required="required" ></div>';
+        $o .= '<div><input type="text" id="us_name" name="us_name" placeholder="' . esc_html__('Your name', 'open-booking-calendar') . '" required="required" ></div>';
         $o .= '</td></tr>';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="us_email">' . __('Your email', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="us_email">' . esc_html__('Your email', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
-        $o .= '<div><input type="email" id="us_email" name="us_email" placeholder="' . __('Your email', 'open-booking-calendar') . '" required="required" ></div>';
+        $o .= '<div><input type="email" id="us_email" name="us_email" placeholder="' . esc_html__('Your email', 'open-booking-calendar') . '" required="required" ></div>';
         $o .= '</td></tr>';
 
         $o .= '</table>';
 
-        $o .= '<div><input type="submit" value="' . __('Preview booking', 'open-booking-calendar') . '" ></div>';
+        $o .= '<div><input type="submit" value="' . esc_html__('Preview booking', 'open-booking-calendar') . '" ></div>';
 
         $o .= '</form>';
         $o .= '</div>';
@@ -452,9 +457,9 @@ class BookingCalendar_CSC
             'flatpickr_l10n',
             [
                 'locale' => $lang,
-                'out_season' => __('Out of season', 'open-booking-calendar'),
-                'date_reserved' => __('Date already reserved', 'open-booking-calendar'),
-                'select_in_calendar' => __('Select your dates in the calendar', 'open-booking-calendar'),
+                'out_season' => esc_html__('Out of season', 'open-booking-calendar'),
+                'date_reserved' => esc_html__('Date already reserved', 'open-booking-calendar'),
+                'select_in_calendar' => esc_html__('Select your dates in the calendar', 'open-booking-calendar'),
             ]
         );
     }

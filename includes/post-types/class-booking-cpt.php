@@ -73,10 +73,6 @@ class Booking_CPT
 			'hierarchical'			 => false,
 			'show_in_menu'			 => self::$mainAdminMenuSlug,
 			'supports'				 => ['title'],
-			//'register_meta_box_cb'	 => array( $this, 'registerMetaBoxes' ),
-			//'capabilities'			 => array(
-			//'create_posts' => 'do_not_allow',
-			//),
 		);
 
 		register_post_type($this->post_type, $args);
@@ -233,54 +229,6 @@ class Booking_CPT
 	}
 
 	/**
-	 * Determine and return the corresponding promotion id
-	 */
-	public function get_promotion_id($accommodation_id, $season_id, $num_nights)
-	{
-
-		$promotion_id = ""; // empty by default
-
-		// 
-		$args = [
-			'meta_query' => [
-				'relation' => 'AND',
-				[
-					'key' => '_obcal_promotion_accommodation_id',
-					'value' => $accommodation_id
-				],
-				[
-					'key' => '_obcal_promotion_season_id',
-					'value' => $season_id
-				],
-				[
-					'key' => '_obcal_promotion_num_nights',
-					'value' => $num_nights,
-					'type' => 'NUMERIC', // specify it for numeric values
-					'compare' => '<='
-				],
-			],
-			'post_type' => 'obcal_promotion',
-		];
-
-		$query_result = new WP_Query($args);
-
-		// The Loop
-		if ($query_result->have_posts()) {
-
-			$query_result->the_post();
-			$post = $query_result->post;
-
-			// Set promotion_id
-			$promotion_id = $post->ID;
-
-			/* Restore original Post Data */
-			wp_reset_postdata();
-		}
-
-		return $promotion_id;
-	}
-
-	/**
 	 * Calculate and return booking total price
 	 */
 	public function get_total_price($accommodation_id, $num_nights, $season_id, $promotion_id)
@@ -288,7 +236,7 @@ class Booking_CPT
 
 		$total_price = 0; // by default
 
-		if (!empty($promotion_id)) { // with promotion
+		if (defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) && !empty($promotion_id)) { // with promotion
 
 			// Get promotion total price
 			$promotion_total_price = get_post_meta($promotion_id, "_obcal_promotion_total_price", true);
@@ -336,11 +284,13 @@ class Booking_CPT
 		);
 
 		// Save booking promotion id
-		update_post_meta(
-			$post_id,
-			"_{$this->post_type}_promotion_id",
-			$promotion_id
-		);
+		if ( defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ) {
+			update_post_meta(
+				$post_id,
+				"_{$this->post_type}_promotion_id",
+				$promotion_id
+			);
+		}
 
 		// Save booking total price
 		update_post_meta(
@@ -369,7 +319,7 @@ class Booking_CPT
 			$options = get_option('obcal_options');
 
 			// Get the ID of the user to send email notifications
-			$admin_id = $options['obcal_field_email_notifications_user_id'];
+			$admin_id = isset($options['obcal_field_email_notifications_user_id']) ? $options['obcal_field_email_notifications_user_id'] : 1;
 
 			// Get admin
 			$admin = get_userdata($admin_id);
@@ -407,33 +357,33 @@ class Booking_CPT
                 'total_price'
 			*/
 
-			$message_booking_details .= "\n--- Detalles de la reserva: ---\n\n";
+			$message_booking_details .= "\n" . esc_html__('--- Booking details: ---', 'open-booking-calendar') . "\n\n";
 
 			$accommodation = get_post($meta_data['accommodation_id']);
-			$message_booking_details .= 'Alojamiento: ' . $accommodation->post_title . "\n";
+			$message_booking_details .= esc_html( __('Accommodation:', 'open-booking-calendar') . ' ' . $accommodation->post_title ) . "\n";
 
-			$message_booking_details .= 'Fecha de check-in: ' . $meta_data['check_in_date'] . "\n";
+			$message_booking_details .= esc_html( __('Check-in date:', 'open-booking-calendar') . ' ' . $meta_data['check_in_date'] ) . "\n";
 
-			$message_booking_details .= 'Fecha de check-out: ' . $meta_data['check_out_date'] . "\n";
+			$message_booking_details .= esc_html( __('Check-out date:', 'open-booking-calendar'). ' ' . $meta_data['check_out_date'] ) . "\n";
 
-			$message_booking_details .= 'Número de adultos: ' . $meta_data['num_adults'] . "\n";
+			$message_booking_details .= esc_html( __('Number of adults:', 'open-booking-calendar') . ' ' . $meta_data['num_adults'] ) . "\n";
 
-			$message_booking_details .= 'Número de niños: ' . $meta_data['num_children'] . "\n";
+			$message_booking_details .= esc_html( __('Number of children:', 'open-booking-calendar') . ' ' . $meta_data['num_children'] ) . "\n";
 
-			$message_booking_details .= 'Número de noches: ' . $meta_data['num_nights'] . "\n";
+			$message_booking_details .= esc_html( __('Number of nights:', 'open-booking-calendar') . ' ' . $meta_data['num_nights'] ) . "\n";
 
 			$season = get_post($meta_data['season_id']);
-			$message_booking_details .= 'Temporada: ' . $season->post_title . "\n";
+			$message_booking_details .= esc_html( __('Season:', 'open-booking-calendar') . ' ' . $season->post_title ) . "\n";
 
-			if ( !empty($meta_data['promotion_id']) ) {
+			if ( defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) && !empty($meta_data['promotion_id']) ) {
 
 				$promotion = get_post($meta_data['promotion_id']);
-				$promotion_num_nights = get_post_meta($meta_data['promotion_id'], "_obcal_promotion_num_nights", true);
-				$message_booking_details .= 'Promoción: ' . $promotion->post_title . ' (' . $promotion_num_nights . " noches)\n";
+				$promotion_num_nights = get_post_meta($meta_data['promotion_id'], "_obcal_promotion_num_nights", true);				
+				$message_booking_details .= esc_html( __('Promotion:', 'open-booking-calendar') . ' ' . $promotion->post_title . ' (' . $promotion_num_nights . ' ' . __('nights', 'open-booking-calendar') ) . ")\n";
 
 			}
 
-			$message_booking_details .= 'Precio: $' . $meta_data['total_price'] . "\n";
+			$message_booking_details .= esc_html( __('Price:', 'open-booking-calendar') . ' $' . $meta_data['total_price'] ) . "\n";
 
 			$message_booking_details .= "\n--- --- --- ---\n\n";
 
@@ -442,32 +392,32 @@ class Booking_CPT
 		if ( $email_id == 'booking_created_to_customer' && !empty($customer_email) ) {
 
 			$to = $customer_email;
-			$subject = 'Hemos recibido su solicitud de reserva';
-			$message .= "Hola {$customer->post_title}.\n\n";
-			$message .= "Hemos recibido su solicitud de reserva, la misma será verificada y le enviaremos un nuevo email cuando sea confirmada.\n";
+			$subject = esc_html__('We have received your booking request', 'open-booking-calendar');
+			$message .= esc_html( __('Hello', 'open-booking-calendar') . ' ' . $customer->post_title ) . ".\n\n";
+			$message .= esc_html__("We have received your booking request, it will be verified and we will send you a new email when it is confirmed.", 'open-booking-calendar') . "\n";
 			$message .= $message_booking_details;
-			$message .= "Cualquier duda no deje de consultarnos, saludos!\n";
+			$message .= esc_html__("We remain available if you have any questions, regards!", 'open-booking-calendar') . "\n";
 			$message .= get_site_url();
 	
 		} else if ( $email_id == 'booking_created_to_admin' && !empty($admin_email) ) {
 
 			$to = $admin_email;
-			$subject = 'Nueva solicitud de reserva';
-			$message .= "Hola {$admin_name}.\n\n";
-			$message .= "Se ha solicitado una nueva reserva para un alojamiento.\n";
+			$subject = esc_html__('New booking request', 'open-booking-calendar');
+			$message .= esc_html( __('Hello', 'open-booking-calendar') . ' ' . $admin_name ) . ".\n\n";
+			$message .= esc_html__("A new reservation for accommodation has been requested.", 'open-booking-calendar') . "\n";
 			$message .= $message_booking_details;
-			$message .= "Puede confirmar o cancelar la solicitud desde el siguiente enlace:\n";
+			$message .= esc_html__("You can confirm or cancel the request from the following link:", 'open-booking-calendar') . "\n";
 			$message .= get_edit_post_link($meta_data['booking_id'], '&') . "\n";
 
-		} else if ( $email_id == 'booking_received_to_customer' && !empty($customer_email) ) {
+		} else if ( $email_id == 'booking_confirmed_to_customer' && !empty($customer_email) ) {
 
 			$accommodation = get_post($meta_data['accommodation_id']);
 
 			$to = $customer_email;
-			$subject = 'Su reserva ha sido confirmada';
-			$message .= "Hola {$customer->post_title}.\n\n";
-			$message .= "Hemos verificado y confirmado su reserva para el alojamiento: " . $accommodation->post_title . ".\n\n";
-			$message .= "Cualquier duda no deje de consultarnos, saludos!\n";
+			$subject = esc_html__('Your reservation has been confirmed', 'open-booking-calendar');
+			$message .= esc_html( __('Hello', 'open-booking-calendar') . ' ' . $customer->post_title ) . ".\n\n";
+			$message .= esc_html( __("We have verified and confirmed your reservation for accommodation:", 'open-booking-calendar') . ' ' . $accommodation->post_title ) . ".\n\n";
+			$message .= esc_html__("We remain available if you have any questions, regards!", 'open-booking-calendar') . "\n";
 			$message .= get_site_url();
 
 		} else if ( $email_id == 'booking_cancelled_to_customer' && !empty($customer_email) ) {
@@ -475,10 +425,10 @@ class Booking_CPT
 			$accommodation = get_post($meta_data['accommodation_id']);
 
 			$to = $customer_email;
-			$subject = 'Su reserva ha sido cancelada';
-			$message .= "Hola {$customer->post_title}.\n\n";
-			$message .= "Hemos verificado y cancelado su reserva para el alojamiento: " . $accommodation->post_title . ".\n\n";
-			$message .= "Cualquier duda no deje de consultarnos, saludos!\n";
+			$subject = esc_html__('Your reservation has been canceled', 'open-booking-calendar');
+			$message .= esc_html( __('Hello', 'open-booking-calendar') . ' ' . $customer->post_title ) . ".\n\n";
+			$message .= esc_html( __("We have verified and canceled your reservation for accommodation:", 'open-booking-calendar') . ' ' . $accommodation->post_title ) . ".\n\n";
+			$message .= esc_html__("We remain available if you have any questions, regards!", 'open-booking-calendar') . "\n";
 			$message .= get_site_url();
 			
 		}

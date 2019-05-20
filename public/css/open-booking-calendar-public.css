@@ -9,7 +9,8 @@
 
 .obcal-booking-calendar-csc .season-dates,
 .obcal-booking-calendar-csc .season-price,
-.obcal-booking-calendar-csc .promotion-num-nights {
+.obcal-booking-calendar-csc .promotion-num-nights,
+.obcal-booking-calendar-csc .promotion-season {
     padding-left: 15px;
 }
 
@@ -25,11 +26,6 @@
 .obcal-search-accommodations-csc .obcal-form input {
     min-width: 310px;
     margin-bottom: 10px;
-}
-
-.obcal-promotions form {
-    display: inline-block;
-    margin: 10px 30px 10px 0;    
 }
 
 .obcal-search-results-csc table th {
@@ -131,8 +127,4 @@
 .obcal-plus-csc-booking-preview {
     padding: 20px;
     font-size: 27px;
-}
-
-.obcal-promotions-csc h2:before {
-    display: none;
 }

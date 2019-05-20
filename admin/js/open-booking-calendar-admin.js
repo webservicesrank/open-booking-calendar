@@ -32,6 +32,11 @@
 	// execute when the DOM is ready
 	$(document).ready(function () {
 
+		// Horizontal separators in the main menu
+		$("#toplevel_page_open-booking-calendar ul li")
+		.parent().find("li:nth-child(4)").addClass("menu-top-separator")
+		.parent().find("li:nth-child(6)").addClass("menu-top-separator");
+
 		$(".season-start-date, .season-end-date").flatpickr({
 			dateFormat: $("#obc_cal_dateFormat").val(),
 		});

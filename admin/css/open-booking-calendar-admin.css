@@ -3,11 +3,11 @@
  * included in this file.
  */
 
-#adminmenu #toplevel_page_open-booking-calendar .wp-submenu li:nth-child(4) a,
-#adminmenu #toplevel_page_open-booking-calendar .wp-submenu li:nth-child(7) a {
-    border-top: 1px solid #444;
-    padding-top: 10px;
-    margin-top: 6px;
+/* Horizontal separator for the admin main menu */
+.menu-top-separator {
+border-top: 1px solid #444 !important;
+padding-top: 4px !important;
+margin-top: 5px !important;
 }
 
 .form-table td {

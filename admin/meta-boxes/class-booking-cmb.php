@@ -27,31 +27,31 @@ class Booking_CMB
 	 * @access   private
 	 * @var      string    $booking_cpt    The booking custom post type object.
 	 */	
-		private $booking_cpt;
+	private $booking_cpt;
 
-		protected $post_type = 'obcal_booking';
-		protected $statuses;
+	protected $post_type = 'obcal_booking';
+	protected $statuses;
 
-		/**
-     * Initialize the class and set its properties.
-     *
-     * @since    1.0.0
-     * @param      string    $open_booking_calendar       The name of the plugin.
-     * @param      string    $version    The version of this plugin.
-     */
-    public function __construct($open_booking_calendar, $version, $booking_cpt)
-    {
+	/**
+	 * Initialize the class and set its properties.
+	 *
+	 * @since    1.0.0
+	 * @param      string    $open_booking_calendar       The name of the plugin.
+	 * @param      string    $version    The version of this plugin.
+	 */
+	public function __construct($open_booking_calendar, $version, $booking_cpt)
+	{
 
-			$this->open_booking_calendar = $open_booking_calendar;
-			$this->version = $version;
+		$this->open_booking_calendar = $open_booking_calendar;
+		$this->version = $version;
 
-			$this->booking_cpt = $booking_cpt;
+		$this->booking_cpt = $booking_cpt;
 
-			$this->statuses = [
-				'pending' => __('Pending', 'open-booking-calendar'),
-				'confirmed' => __('Confirmed', 'open-booking-calendar'),
-				'cancelled' => __('Cancelled', 'open-booking-calendar'),
-			];
+		$this->statuses = [
+			'pending' => __('Pending', 'open-booking-calendar'),
+			'confirmed' => __('Confirmed', 'open-booking-calendar'),
+			'cancelled' => __('Cancelled', 'open-booking-calendar'),
+		];
 
 	}
 
@@ -105,15 +105,15 @@ class Booking_CMB
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_customer_id"><?=__('Customer', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_customer_id') ?>"><?php esc_html_e('Customer', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<select name="<?=$this->post_type?>_customer_id" id="<?=$this->post_type?>_customer_id" >
+					<select name="<?= esc_attr($this->post_type . '_customer_id') ?>" id="<?= esc_attr($this->post_type . '_customer_id') ?>" >
 						<?php
 						foreach ($customers as $customer){
 							$customer_email = get_post_meta($customer->ID, "_obcal_customer_email", true);
 						?>
-						<option value="<?=$customer->ID?>" <?php selected( $customer->ID, $customer_id, true ); ?>>
+						<option value="<?= esc_attr($customer->ID) ?>" <?php selected( $customer->ID, $customer_id, true ); ?>>
 							<?php echo esc_html( $customer->ID . "- " . $customer->post_title . " (" . $customer_email . ")" ); ?>
 						</option>
 						<?php
@@ -124,14 +124,14 @@ class Booking_CMB
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_accommodation_id"><?=__('Accommodation', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_accommodation_id') ?>"><?php esc_html_e('Accommodation', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<select name="<?=$this->post_type?>_accommodation_id" id="<?=$this->post_type?>_accommodation_id" >
+					<select name="<?= esc_attr($this->post_type . '_accommodation_id') ?>" id="<?= esc_attr($this->post_type . '_accommodation_id') ?>" >
 						<?php
 						foreach ($accommodations as $accommodation){
 						?>
-						<option value="<?=$accommodation->ID?>" <?php selected( $accommodation->ID, $accommodation_id, true ); ?>>
+						<option value="<?= esc_attr($accommodation->ID) ?>" <?php selected( $accommodation->ID, $accommodation_id, true ); ?>>
 							<?php echo esc_html( $accommodation->post_title ); ?>
 						</option>
 						<?php
@@ -142,47 +142,47 @@ class Booking_CMB
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_num_adults"><?=__('Number of adults', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_num_adults') ?>"><?php esc_html_e('Number of adults', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<input type="number" name="<?=$this->post_type?>_num_adults" id="<?=$this->post_type?>_num_adults" value="<?=$num_adults?>">
+					<input type="number" name="<?= esc_attr($this->post_type . '_num_adults') ?>" id="<?= esc_attr($this->post_type . '_num_adults') ?>" value="<?= esc_attr($num_adults) ?>">
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_num_children"><?=__('Number of children', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_num_children') ?>"><?php esc_html_e('Number of children', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<input type="number" name="<?=$this->post_type?>_num_children" id="<?=$this->post_type?>_num_children" value="<?=$num_children?>">
+					<input type="number" name="<?= esc_attr($this->post_type . '_num_children') ?>" id="<?= esc_attr($this->post_type . '_num_children') ?>" value="<?= esc_attr($num_children) ?>">
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_check_in_date"><?=__('Check-in date', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_check_in_date') ?>"><?php esc_html_e('Check-in date', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<input type="hidden" id="obc_cal_dateFormat" value="<?=$options_date_format?>">
-					<input type="text" name="<?=$this->post_type?>_check_in_date" id="<?=$this->post_type?>_check_in_date" class="booking-check-in-date" placeholder="<?=__('Select Date..', 'open-booking-calendar')?>" value="<?=$check_in_date->format($options_date_format)?>">
+					<input type="hidden" id="obc_cal_dateFormat" value="<?= esc_attr($options_date_format) ?>">
+					<input type="text" name="<?= esc_attr($this->post_type . '_check_in_date') ?>" id="<?= esc_attr($this->post_type . '_check_in_date') ?>" class="booking-check-in-date" placeholder="<?=__('Select Date..', 'open-booking-calendar')?>" value="<?= esc_attr( $check_in_date->format($options_date_format) ) ?>">
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_check_out_date"><?=__('Check-out date', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_check_out_date') ?>"><?php esc_html_e('Check-out date', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<input type="text" name="<?=$this->post_type?>_check_out_date" id="<?=$this->post_type?>_check_out_date" class="booking-check-out-date" placeholder="<?=__('Select Date..', 'open-booking-calendar')?>" value="<?=$check_out_date->format($options_date_format)?>">
+					<input type="text" name="<?= esc_attr($this->post_type . '_check_out_date') ?>" id="<?= esc_attr($this->post_type . '_check_out_date') ?>" class="booking-check-out-date" placeholder="<?=__('Select Date..', 'open-booking-calendar')?>" value="<?= esc_attr( $check_out_date->format($options_date_format) ) ?>">
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_status"><?=__('Status', 'open-booking-calendar')?></label>
+					<label for="<?= esc_attr($this->post_type . '_status') ?>"><?php esc_html_e('Status', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<select name="<?=$this->post_type?>_status" id="<?=$this->post_type?>_status" >
+					<select name="<?= esc_attr($this->post_type . '_status') ?>" id="<?= esc_attr($this->post_type . '_status') ?>" >
 						<?php
 						foreach ($statuses as $status_key => $status_value){
 						?>
-						<option value="<?=$status_key?>" <?php selected( $status_key, $status, true ); ?>>
+						<option value="<?= esc_attr($status_key) ?>" <?php selected( $status_key, $status, true ); ?>>
 							<?php echo esc_html( $status_value ); ?>
 						</option>
 						<?php
@@ -220,23 +220,23 @@ class Booking_CMB
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_num_nights"><?=__('Number of nights', 'open-booking-calendar')?></label>
+					<label><?php esc_html_e('Number of nights', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<?php echo empty($booking_num_nights) ? '-' : $booking_num_nights?>
+					<?= esc_html( empty($booking_num_nights) ? '-' : $booking_num_nights) ?>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_season"><?=__('Season', 'open-booking-calendar')?></label>
+					<label><?php esc_html_e('Season', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					<?php echo empty($booking_season_id) ? '-' : ($booking_season->post_title . " ({$booking_season_start_date->format($options_date_format)} - {$booking_season_end_date->format($options_date_format)})" )?>
+					<?= esc_html( empty($booking_season_id) ? '-' : ($booking_season->post_title . " ({$booking_season_start_date->format($options_date_format)} - {$booking_season_end_date->format($options_date_format)})" ) ) ?>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_applies"><?=__('Applies', 'open-booking-calendar')?></label>
+					<label><?php esc_html_e('Applies', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
 					<?php
@@ -246,24 +246,24 @@ class Booking_CMB
 
 					}else{
 
-						$promotion_id = get_post_meta($post->ID, "_{$this->post_type}_promotion_id", true);
+						$promotion_id = defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ? get_post_meta($post->ID, "_{$this->post_type}_promotion_id", true) : '';
 
 						if (empty($promotion_id)) {
 
-							echo __('Normal nights without promotion', 'open-booking-calendar') . '.';
+							esc_html_e('Normal nights without promotion.', 'open-booking-calendar');
 
 						} else {
 
 							$promotion = get_post($promotion_id);
 							$promotion_num_nights = get_post_meta($promotion_id, "_obcal_promotion_num_nights", true);
 
-							echo __('Promotion', 'open-booking-calendar') . ": " . $promotion->post_title;
+							echo esc_html( __('Promotion', 'open-booking-calendar') . ": " . $promotion->post_title );
 
 							$extra_normal_nights = (int)$booking_num_nights - (int)$promotion_num_nights;
 
 							if ($extra_normal_nights > 0) {
 
-								echo '<br>' . __('Normal nights', 'open-booking-calendar') . ': ' . $extra_normal_nights;
+								echo esc_html( '<br>' . __('Normal nights', 'open-booking-calendar') . ': ' . $extra_normal_nights );
 
 							}
 
@@ -275,19 +275,17 @@ class Booking_CMB
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="<?=$this->post_type?>_total_price"><?=__('Booking total price', 'open-booking-calendar')?></label>
+					<label><?php esc_html_e('Booking total price', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
 					<?php
 					if(empty($booking_total_price)){
 
-						echo __('When saving the changes the calculation will be made automatically', 'open-booking-calendar');
+						esc_html_e('When saving the changes the calculation will be made automatically.', 'open-booking-calendar');
 
 					}else{
 
-						$promotion_id = get_post_meta($post->ID, "_{$this->post_type}_promotion_id", true);						
-
-						echo "$" . $booking_total_price;
+						echo esc_html( "$" . $booking_total_price );
 
 					}
 					?>
@@ -304,6 +302,61 @@ class Booking_CMB
 	 */
 	public function save($post_id)
 	{
+		// Keys of the values to save directly
+		$keys_to_save_directly = ['customer_id', 'accommodation_id', 'num_children', 'num_adults', 'check_in_date', 'check_out_date', 'status'];
+
+		/** 
+		 * Sanitize POST values
+		 */
+
+		// Sanitize values for 'Save values in array directly'
+		foreach ($keys_to_save_directly as $key_to_save) {
+			if (array_key_exists("{$this->post_type}_{$key_to_save}", $_POST)) {
+				if ($key_to_save == 'check_in_date' || $key_to_save == 'check_out_date'){
+					$_POST["{$this->post_type}_{$key_to_save}"] = sanitize_text_field($_POST["{$this->post_type}_{$key_to_save}"]);
+				} else {
+					$_POST["{$this->post_type}_{$key_to_save}"] = sanitize_key($_POST["{$this->post_type}_{$key_to_save}"]);
+				}
+			}
+		}
+
+
+		/**
+		 * Validate POST values
+		 */
+
+		// Validate values for 'Save values in array directly'
+		foreach ($keys_to_save_directly as $key_to_save) {
+			if (array_key_exists("{$this->post_type}_{$key_to_save}", $_POST)) {
+
+				// Get POST value
+				$value = $_POST["{$this->post_type}_{$key_to_save}"];
+
+				// Validate 'customer_id'
+
+				// Validate 'accommodation_id'
+
+				// Validate 'num_adults'
+				if ($key_to_save == 'num_adults' && (!is_numeric($value) || $value < 1)) {
+					$_POST["{$this->post_type}_{$key_to_save}"] = 1;
+				}
+
+				// Validate 'num_children'
+				if ($key_to_save == 'num_children' && (!is_numeric($value) || $value < 0)) {
+					$_POST["{$this->post_type}_{$key_to_save}"] = 0;
+				}
+
+				// Validate 'check_in_date', 'check_out_date'
+
+				// Validate 'status'
+				
+			}
+		}
+		
+
+		/**
+		 * 
+		 */
 
 		// Check if exists input dates keys
 		if (array_key_exists("{$this->post_type}_accommodation_id", $_POST) && array_key_exists("{$this->post_type}_check_in_date", $_POST) && array_key_exists("{$this->post_type}_check_out_date", $_POST)) {
@@ -346,7 +399,7 @@ class Booking_CMB
 			}
 
 			// Get booking promotion id
-			$promotion_id = $this->booking_cpt->get_promotion_id($accommodation_id, $season_id, $num_nights);
+			$promotion_id = defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ? apply_filters('obcal_promotion_get_promotion_id', $accommodation_id, $season_id, $num_nights) : '';
 
 			// Get booking total price
 			$total_price = $this->booking_cpt->get_total_price($accommodation_id, $num_nights, $season_id, $promotion_id);
@@ -371,8 +424,6 @@ class Booking_CMB
 
 			// Get booking status before save, this is useful for send the email when the status change
 			$prev_booking_status = get_post_meta($post_id, "_{$this->post_type}_status", true);
-
-			$keys_to_save_directly = ['customer_id', 'accommodation_id', 'num_children', 'num_adults', 'check_in_date', 'check_out_date', 'status'];
 
 			foreach ($keys_to_save_directly as $key_to_save) {
 
@@ -420,12 +471,12 @@ class Booking_CMB
 		$new_columns = [
 			'cb' => $columns['cb'],
 			'title' => $columns['title'],
-			'accommodation' => __('Accommodation', 'open-booking-calendar'),
-			'customer' => __('Customer', 'open-booking-calendar'),
-			'check_in_date' => __('Check-in date', 'open-booking-calendar'),
-			'num_nights' => __('Num. of nights', 'open-booking-calendar'),
-			'total_price' => __('Price', 'open-booking-calendar'),
-			'status' => __('Status', 'open-booking-calendar'),
+			'accommodation' => esc_html__('Accommodation', 'open-booking-calendar'),
+			'customer' => esc_html__('Customer', 'open-booking-calendar'),
+			'check_in_date' => esc_html__('Check-in date', 'open-booking-calendar'),
+			'num_nights' => esc_html__('Num. of nights', 'open-booking-calendar'),
+			'total_price' => esc_html__('Price', 'open-booking-calendar'),
+			'status' => esc_html__('Status', 'open-booking-calendar'),
 			'date' => $columns['date'],
 		];
 		return $new_columns;
@@ -453,16 +504,16 @@ class Booking_CMB
 			$options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 			// Get and print check-in date
 			$check_in_date = new DateTime(get_post_meta($post_id, "_{$this->post_type}_check_in_date", true));
-			echo $check_in_date->format($options_date_format);
+			echo esc_html($check_in_date->format($options_date_format));
 			break;
 		case 'num_nights':
-			echo get_post_meta( $post_id , "_{$this->post_type}_num_nights" , true );
+			echo esc_html(get_post_meta( $post_id , "_{$this->post_type}_num_nights" , true ));
 			break;
 		case 'total_price':
-			echo "$" . get_post_meta( $post_id , "_{$this->post_type}_total_price" , true );
+			echo esc_html("$" . get_post_meta( $post_id , "_{$this->post_type}_total_price" , true ));
 			break;
 		case 'status':
-			echo $this->statuses[get_post_meta( $post_id , "_{$this->post_type}_status" , true )];
+			echo esc_html($this->statuses[get_post_meta( $post_id , "_{$this->post_type}_status" , true )]);
 			break;
 
 		}
@@ -522,7 +573,7 @@ class Booking_CMB
 			if( $_REQUEST['wsr_notice'] === "season_error") {
 
 				$html .=	'<div class="notice notice-warning is-dismissible">';
-				$html .=	'<p>' . __('The selected date does not belong to an active season.', 'open-booking-calendar') . '</p>';
+				$html .=	'<p>' . esc_html__('The selected date does not belong to an active season.', 'open-booking-calendar') . '</p>';
 				$html .= '</div>';
 												
 			}
@@ -530,7 +581,7 @@ class Booking_CMB
 			if( $_REQUEST['wsr_notice'] === "availability_error") {
 
 				$html .=	'<div class="notice notice-warning is-dismissible">';
-				$html .=	'<p>' . __('The selected date is not available for reservations.', 'open-booking-calendar') . '</p>';
+				$html .=	'<p>' . esc_html__('The selected date is not available for reservations.', 'open-booking-calendar') . '</p>';
 				$html .= '</div>';
 
 			}

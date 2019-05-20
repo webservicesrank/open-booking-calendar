@@ -226,7 +226,7 @@ class SettingsMenuPage
             <?php
             foreach($themes as $theme_key => $theme_value) {
             ?>
-            <option value="<?=$theme_key?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $theme_key, false)) : (''); ?>>
+            <option value="<?php echo esc_attr($theme_key); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $theme_key, false)) : (''); ?>>
                 <?php echo esc_html($theme_value); ?>
             </option>
             <?php
@@ -265,7 +265,7 @@ class SettingsMenuPage
             <?php
             foreach($date_formats as $format_key => $format_value) {
             ?>
-            <option value="<?=$format_key?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $format_key, false)) : (''); ?>>
+            <option value="<?php echo esc_attr($format_key); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $format_key, false)) : (''); ?>>
                 <?php echo esc_html($format_value); ?>
             </option>
             <?php
@@ -302,7 +302,7 @@ class SettingsMenuPage
             <?php
             foreach($pages as $page) {
             ?>
-            <option value="<?=$page->ID?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $page->ID, false)) : (''); ?>>
+            <option value="<?php echo esc_attr($page->ID); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $page->ID, false)) : (''); ?>>
                 <?php echo esc_html($page->post_title); ?>
             </option>
             <?php
@@ -337,7 +337,7 @@ class SettingsMenuPage
             <?php
             foreach($users as $user) {
             ?>
-            <option value="<?=$user->ID?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $user->ID, false)) : (''); ?>>
+            <option value="<?php echo esc_attr($user->ID); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $user->ID, false)) : (''); ?>>
                 <?php echo esc_html($user->display_name) . ' (' . esc_html($user->user_email) . ')'; ?>
             </option>
             <?php

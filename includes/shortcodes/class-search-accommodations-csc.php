@@ -111,7 +111,7 @@ class SearchAccommodations_CSC
 
         // Title
         if ($obcal_atts['show_title'] == true) {
-            $o .= '<h3>' . __('Search accommodations', 'open-booking-calendar') . '</h3>';
+            $o .= '<h3>' . esc_html__('Search accommodations', 'open-booking-calendar') . '</h3>';
         }
 
         // form
@@ -127,7 +127,7 @@ class SearchAccommodations_CSC
         $o .= '<table class="obcal-form-table">';
 
         $o .= '<tr><th scope="row">';
-        $o .= '<label for="selected_date">' . __('Select Date..', 'open-booking-calendar') . '</label>';
+        $o .= '<label for="selected_date">' . esc_html__('Select Date..', 'open-booking-calendar') . '</label>';
         $o .= '</th><td>';
         // calendar
         $o .= '<input type="hidden" id="obc_cal_inline" value="false">';
@@ -135,42 +135,42 @@ class SearchAccommodations_CSC
         $o .= '<input type="hidden" id="obc_cal_dateFormat" value="' . esc_attr($options_date_format) . '">';
         $o .= '<input type="hidden" id="obc_cal_minDate" value="' . esc_attr($flatpickr_min_date) . '">';
         //$o .= '<input type="hidden" id="obc_cal_maxDate" value="' . esc_attr($flatpickr_max_date) . '">';
-        $o .= '<input class="flatpickr flatpickr-input search-calendar-input" type="text" id="selected_date" name="selected_date" placeholder="' . __('Select Date..', 'open-booking-calendar') . '" readonly="readonly" required="required">';
+        $o .= '<input class="flatpickr flatpickr-input search-calendar-input" type="text" id="selected_date" name="selected_date" placeholder="' . esc_html__('Select Date..', 'open-booking-calendar') . '" readonly="readonly" required="required">';
         $o .= '</td></tr>';
 
         if ($obcal_atts['show_num_adults_field'] == true) {
             $o .= '<tr><th scope="row">';
-            $o .= '<label for="num_adults">' . __('Number of adults', 'open-booking-calendar') . '</label>';
+            $o .= '<label for="num_adults">' . esc_html__('Number of adults', 'open-booking-calendar') . '</label>';
             $o .= '</th><td>';
-            $o .= '<div><input type="number" min="1" id="num_adults" name="num_adults" placeholder="' . __('Number of adults', 'open-booking-calendar') . '" required="required"></div>';
+            $o .= '<div><input type="number" min="1" id="num_adults" name="num_adults" placeholder="' . esc_html__('Number of adults', 'open-booking-calendar') . '" required="required"></div>';
             $o .= '</td></tr>';
         }
 
         if ($obcal_atts['show_num_children_field'] == true) {
             $o .= '<tr><th scope="row">';
-            $o .= '<label for="num_children">' . __('Number of children', 'open-booking-calendar') . '</label>';
+            $o .= '<label for="num_children">' . esc_html__('Number of children', 'open-booking-calendar') . '</label>';
             $o .= '</th><td>';
-            $o .= '<div><input type="number" min="0" id="num_children" name="num_children" placeholder="' . __('Number of children', 'open-booking-calendar') . '" required="required" ></div>';
+            $o .= '<div><input type="number" min="0" id="num_children" name="num_children" placeholder="' . esc_html__('Number of children', 'open-booking-calendar') . '" required="required" ></div>';
             $o .= '</td></tr>';
         }
 
         if ( $obcal_atts['show_name_email_fields'] == true ) {
             $o .= '<tr><th scope="row">';
-            $o .= '<label for="us_name">' . __('Your name', 'open-booking-calendar') . '</label>';
+            $o .= '<label for="us_name">' . esc_html__('Your name', 'open-booking-calendar') . '</label>';
             $o .= '</th><td>';
-            $o .= '<div><input type="text" id="us_name" name="us_name" placeholder="' . __('Your name', 'open-booking-calendar') . '" required="required" ></div>';
+            $o .= '<div><input type="text" id="us_name" name="us_name" placeholder="' . esc_html__('Your name', 'open-booking-calendar') . '" required="required" ></div>';
             $o .= '</td></tr>';
 
             $o .= '<tr><th scope="row">';
-            $o .= '<label for="us_email">' . __('Your email', 'open-booking-calendar') . '</label>';
+            $o .= '<label for="us_email">' . esc_html__('Your email', 'open-booking-calendar') . '</label>';
             $o .= '</th><td>';
-            $o .= '<div><input type="email" id="us_email" name="us_email" placeholder="' . __('Your email', 'open-booking-calendar') . '" required="required" ></div>';
+            $o .= '<div><input type="email" id="us_email" name="us_email" placeholder="' . esc_html__('Your email', 'open-booking-calendar') . '" required="required" ></div>';
             $o .= '</td></tr>';
         }
 
         $o .= '</table>';
 
-        $o .= '<div><input type="submit" value="' . __('Search', 'open-booking-calendar') . '" ></div>';
+        $o .= '<div><input type="submit" value="' . esc_html__('Search', 'open-booking-calendar') . '" ></div>';
 
         $o .= '</form>';
         $o .= '</div>';

@@ -61,7 +61,6 @@ class BookingReceived_CSC
 
         // override default attributes with user attributes
         $obcal_atts = shortcode_atts([
-            'title' => __('Our current promotions', 'open-booking-calendar')
         ], $atts, $tag);
 
         // Convert values to bool if applicable
@@ -75,7 +74,7 @@ class BookingReceived_CSC
         $o = '';
 
         // start box
-        $o .= '<div class="obcal-promotions-csc">';
+        $o .= '<div class="obcal-booking-received-csc">';
 
         /**
          * Verify form nonce
@@ -118,13 +117,13 @@ class BookingReceived_CSC
 
         if (array_key_exists("confirm_accommodation_id", $_POST) && array_key_exists("confirm_check_in_date", $_POST) && array_key_exists("confirm_check_out_date", $_POST) && array_key_exists("confirm_num_adults", $_POST) && array_key_exists("confirm_num_children", $_POST) && array_key_exists("confirm_us_name", $_POST) && array_key_exists("confirm_us_email", $_POST)) {
 
-            $accommodation_id = $_POST['confirm_accommodation_id'];
-            $check_in_date = new DateTime($_POST['confirm_check_in_date']);
-            $check_out_date = new DateTime($_POST['confirm_check_out_date']);
-            $num_adults = $_POST['confirm_num_adults'];
-            $num_children = $_POST['confirm_num_children'];
-            $us_name = $_POST['confirm_us_name'];
-            $us_email = $_POST['confirm_us_email'];
+            $accommodation_id = sanitize_key($_POST['confirm_accommodation_id']);
+            $check_in_date = new DateTime(sanitize_text_field($_POST['confirm_check_in_date']));
+            $check_out_date = new DateTime(sanitize_text_field($_POST['confirm_check_out_date']));
+            $num_adults = sanitize_key($_POST['confirm_num_adults']);
+            $num_children = sanitize_key($_POST['confirm_num_children']);
+            $us_name = sanitize_text_field($_POST['confirm_us_name']);
+            $us_email = sanitize_email($_POST['confirm_us_email']);
 
             // Add customer and/or get your ID
             $customer_id = $this->add_customer($us_email, $us_name);
@@ -134,7 +133,7 @@ class BookingReceived_CSC
 
         } else {
 
-            $o .= __('The sent data is not valid', 'open-booking-calendar');
+            $o .= esc_html__('The sent data is not valid', 'open-booking-calendar');
 
         }
 
@@ -208,7 +207,7 @@ class BookingReceived_CSC
 
         if (empty($season_id)) {
 
-            $o .= '<div class="obcal-notice obcal-notice-error availability-error">' . __('Sorry, the dates were edited internally and now the dates you selected no longer belong to an active season.', 'open-booking-calendar') . '</div>';
+            $o .= '<div class="obcal-notice obcal-notice-error availability-error">' . esc_html__('Sorry, the dates were edited internally and now the dates you selected no longer belong to an active season.', 'open-booking-calendar') . '</div>';
 
         }
 
@@ -217,12 +216,12 @@ class BookingReceived_CSC
 
         if (!$available_dates) {
 
-            $o .= '<div class="obcal-notice obcal-notice-error availability-error">' . __('Sorry, another reservation was made seconds before this and now the dates you selected are no longer available.', 'open-booking-calendar') . '</div>';
+            $o .= '<div class="obcal-notice obcal-notice-error availability-error">' . esc_html__('Sorry, another reservation was made seconds before this and now the dates you selected are no longer available.', 'open-booking-calendar') . '</div>';
 
         }
 
         // Get booking promotion id
-        $promotion_id = $this->booking_cpt->get_promotion_id($accommodation_id, $season_id, $num_nights);
+        $promotion_id = defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ? apply_filters('obcal_promotion_get_promotion_id', $accommodation_id, $season_id, $num_nights) : '';
 
         // Get booking total price
         $total_price = $this->booking_cpt->get_total_price($accommodation_id, $num_nights, $season_id, $promotion_id);
@@ -230,7 +229,7 @@ class BookingReceived_CSC
         // Print more error messages
         if (empty($season_id) || !$available_dates) {
 
-            $o .= '<div class="obcal-notice obcal-notice-info availability-error">' . __('You can go back to the calendar and select a different date or accommodation.', 'open-booking-calendar') . '</div>';
+            $o .= '<div class="obcal-notice obcal-notice-info availability-error">' . esc_html__('You can go back to the calendar and select a different date or accommodation.', 'open-booking-calendar') . '</div>';
 
         }
 
@@ -273,11 +272,11 @@ class BookingReceived_CSC
             );
 
             $o .= '<div class="obcal-notice obcal-notice-success booking-received">';
-            $o .= '<h3>' . __('Your reservation was received successfully!', 'open-booking-calendar') . '</h3>';
+            $o .= '<h3>' . esc_html__('Your reservation was received successfully!', 'open-booking-calendar') . '</h3>';
             $o .= '</div>';
 
             $o .= '<div class="obcal-notice obcal-notice-info booking-received">';
-            $o .= __('We will send you an email with the details of the booking.', 'open-booking-calendar');
+            $o .= esc_html__('We will send you an email with the details of the booking.', 'open-booking-calendar');
             $o .= '</div>';
 
             /**

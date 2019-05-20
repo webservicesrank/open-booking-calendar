@@ -25,7 +25,6 @@ class Season_CPT
 
 	public static $mainAdminMenuCapability = 'edit_posts';
 	public static $mainAdminMenuSlug = 'open-booking-calendar';
-	public static $mainAdminMenuPosition = 3.5;
 
 	/**
      * Initialize the class and set its properties.
@@ -69,10 +68,9 @@ class Season_CPT
 			'capability_type'		 => 'post',
 			'has_archive'			 => false,
 			'hierarchical'			 => false,
-			'show_in_menu'			 => self::$mainAdminMenuSlug, //MPHB()->post_types()->roomType()->getMenuSlug(),
+			'show_in_menu'			 => self::$mainAdminMenuSlug,
 			'supports'				 => array( 'title' ),
 			'hierarchical'			 => false,
-			//'register_meta_box_cb'	 => array( $this, 'registerMetaBoxes' ),
 		);
 
 		register_post_type( $this->post_type, $args );

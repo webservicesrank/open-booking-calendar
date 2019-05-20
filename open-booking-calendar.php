@@ -19,8 +19,8 @@
  * Version:           1.0.0
  * Author:            WebServicesRank.com, Fabián Karaben
  * Author URI:        https://webservicesrank.com/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:           GPLv3
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       open-booking-calendar
  * Domain Path:       /languages
  */
