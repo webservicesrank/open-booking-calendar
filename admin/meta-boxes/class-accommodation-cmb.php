@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class Accommodation_CMB
 {
 

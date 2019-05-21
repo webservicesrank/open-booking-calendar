@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Search Results Custom Shortcode
  */
@@ -151,8 +153,8 @@ class SearchResults_CSC
         $check_out_date = substr($selected_date, $selected_date_pos_second_bsp + 1, strlen($check_in_date));
 
         // Get dates as objects
-        $search_check_in_date = new DateTime($check_in_date);
-        $search_check_out_date = new DateTime($check_out_date);
+        $search_check_in_date = new \DateTime($check_in_date);
+        $search_check_out_date = new \DateTime($check_out_date);
 
         /**
          * Find active seasons in the search date period
@@ -160,12 +162,12 @@ class SearchResults_CSC
 
         $relevant_season_ids = [];
 
-        $now_date = new DateTime(date_i18n($options_date_format));
+        $now_date = new \DateTime(date_i18n($options_date_format));
 
         $seasons = get_posts(['post_type' => 'obcal_season', 'numberposts' => -1]);
         foreach ($seasons as $season) {
-            $season_start_date = new DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
-            $season_end_date = new DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
+            $season_start_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
+            $season_end_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
 
             // If is a current an published season
             if ($season->post_status == "publish" && $season_end_date >= $now_date) {

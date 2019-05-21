@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * The public-facing functionality of the plugin.
  *

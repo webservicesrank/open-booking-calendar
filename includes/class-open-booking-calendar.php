@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * The file that defines the core plugin class
  *
@@ -172,7 +174,7 @@ class Open_Booking_Calendar {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-open-booking-calendar-public.php';
 
-		$this->loader = new Open_Booking_Calendar_Loader();
+		$this->loader = new \OBCal\Open_Booking_Calendar_Loader();
 
 	}
 
@@ -187,7 +189,7 @@ class Open_Booking_Calendar {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Open_Booking_Calendar_i18n();
+		$plugin_i18n = new \OBCal\Open_Booking_Calendar_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -204,25 +206,25 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Booking custom post type' actions an filters.
 		 */
-		$this->booking_cpt = new Booking_CPT( $this->get_open_booking_calendar(), $this->get_version() );
+		$this->booking_cpt = new \OBCal\Booking_CPT( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $this->booking_cpt, 'register');
 
 		/**
 		 * Add 'Customer custom post type' actions an filters.
 		 */
-		$customer_cpt = new Customer_CPT( $this->get_open_booking_calendar(), $this->get_version() );
+		$customer_cpt = new \OBCal\Customer_CPT( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $customer_cpt, 'register');
 
 		/**
 		 * Add 'Accommodation custom post type' actions an filters.
 		 */
-		$accommodation_cpt = new Accommodation_CPT( $this->get_open_booking_calendar(), $this->get_version() );
+		$accommodation_cpt = new \OBCal\Accommodation_CPT( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $accommodation_cpt, 'register');
 
 		/**
 		 * Add 'Season custom post type' actions an filters.
 		 */
-		$season_cpt = new Season_CPT( $this->get_open_booking_calendar(), $this->get_version() );
+		$season_cpt = new \OBCal\Season_CPT( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $season_cpt, 'register');
 
 	}
@@ -238,7 +240,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Accommodation custom taxonomy' actions an filters.
 		 */
-		$accommodation_type_ct = new AccommodationType_CT( $this->get_open_booking_calendar(), $this->get_version() );
+		$accommodation_type_ct = new \OBCal\AccommodationType_CT( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $accommodation_type_ct, 'register');
 
 	}
@@ -254,7 +256,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Customer custom meta boxes' actions an filters.
 		 */
-		$customer_cmb = new Customer_CMB( $this->get_open_booking_calendar(), $this->get_version() );
+		$customer_cmb = new \OBCal\Customer_CMB( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'add_meta_boxes', $customer_cmb, 'register');
 		$this->loader->add_action( 'save_post_obcal_customer', $customer_cmb, 'save');
 		$this->loader->add_filter( 'manage_obcal_customer_posts_columns', $customer_cmb, 'add_table_custom_columns');
@@ -264,7 +266,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Season custom meta boxes' actions an filters.
 		 */
-		$season_cmb = new Season_CMB( $this->get_open_booking_calendar(), $this->get_version() );
+		$season_cmb = new \OBCal\Season_CMB( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'add_meta_boxes', $season_cmb, 'register');
 		$this->loader->add_action( 'save_post_obcal_season', $season_cmb, 'save');
 		$this->loader->add_filter( 'manage_obcal_season_posts_columns', $season_cmb, 'add_table_custom_columns');
@@ -274,7 +276,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Accommodation custom meta boxes' actions an filters.
 		 */
-		$accommodation_cmb = new Accommodation_CMB( $this->get_open_booking_calendar(), $this->get_version() );
+		$accommodation_cmb = new \OBCal\Accommodation_CMB( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'add_meta_boxes', $accommodation_cmb, 'register');
 		$this->loader->add_action( 'save_post_obcal_accommodation', $accommodation_cmb, 'save');
 		$this->loader->add_filter( 'manage_obcal_accommodation_posts_columns', $accommodation_cmb, 'add_table_custom_columns');
@@ -284,7 +286,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Booking custom meta boxes' actions an filters.
 		 */
-		$booking_cmb = new Booking_CMB( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
+		$booking_cmb = new \OBCal\Booking_CMB( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
 		$this->loader->add_action( 'add_meta_boxes', $booking_cmb, 'register');
 		$this->loader->add_action( 'save_post_obcal_booking', $booking_cmb, 'save');
 		$this->loader->add_action( 'admin_notices', $booking_cmb, 'print_plugin_admin_notices');
@@ -305,7 +307,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Availability calendar and booking form custom shortcode' actions an filters.
 		 */
-		$booking_calendar_csc = new BookingCalendar_CSC( $this->get_open_booking_calendar(), $this->get_version() );
+		$booking_calendar_csc = new \OBCal\BookingCalendar_CSC( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $booking_calendar_csc, 'register');
 		$this->loader->add_action( 'wp_enqueue_scripts', $booking_calendar_csc, 'localize_script', 11);
 		$this->loader->add_action( 'wp_enqueue_scripts', $booking_calendar_csc, 'enqueue_flatpickr_styles', 11 );
@@ -313,25 +315,25 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Booking preview custom shortcode' actions an filters.
 		 */
-		$booking_preview_csc = new BookingPreview_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
+		$booking_preview_csc = new \OBCal\BookingPreview_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
 		$this->loader->add_action( 'init', $booking_preview_csc, 'register');
 
 		/**
 		 * Add 'Booking received custom shortcode' actions an filters.
 		 */
-		$booking_received_csc = new BookingReceived_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
+		$booking_received_csc = new \OBCal\BookingReceived_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
 		$this->loader->add_action( 'init', $booking_received_csc, 'register');
 
 		/**
 		 * Add 'Search Accommodations custom shortcode' actions an filters.
 		 */
-		$search_accommodations_csc = new SearchAccommodations_CSC( $this->get_open_booking_calendar(), $this->get_version() );
+		$search_accommodations_csc = new \OBCal\SearchAccommodations_CSC( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $search_accommodations_csc, 'register');
 
 		/**
 		 * Add 'Search Results custom shortcode' actions an filters.
 		 */
-		$search_results_csc = new SearchResults_CSC( $this->get_open_booking_calendar(), $this->get_version() );
+		$search_results_csc = new \OBCal\SearchResults_CSC( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'init', $search_results_csc, 'register');
 
 	}
@@ -345,7 +347,7 @@ class Open_Booking_Calendar {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Open_Booking_Calendar_Admin( $this->get_open_booking_calendar(), $this->get_version() );
+		$plugin_admin = new \OBCal\Open_Booking_Calendar_Admin( $this->get_open_booking_calendar(), $this->get_version() );
 
 		/**
 		 * Add 'Admin Javascript and CSS styles' actions an filters.
@@ -361,13 +363,13 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Help page' actions an filters.
 		 */
-		$help_admin = new HelpMenuPage( $this->get_open_booking_calendar(), $this->get_version() );
+		$help_admin = new \OBCal\HelpMenuPage( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'admin_menu', $help_admin, 'create_submenu' );
 
 		/**
 		 * Add 'Settings page' actions an filters.
 		 */
-		$settings_admin = new SettingsMenuPage( $this->get_open_booking_calendar(), $this->get_version() );
+		$settings_admin = new \OBCal\SettingsMenuPage( $this->get_open_booking_calendar(), $this->get_version() );
 		$this->loader->add_action( 'admin_menu', $settings_admin, 'create_submenu' );
 		$this->loader->add_action( 'admin_init', $settings_admin, 'settings_init' );
 
@@ -382,7 +384,7 @@ class Open_Booking_Calendar {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Open_Booking_Calendar_Public( $this->get_open_booking_calendar(), $this->get_version() );
+		$plugin_public = new \OBCal\Open_Booking_Calendar_Public( $this->get_open_booking_calendar(), $this->get_version() );
 
 		/**
 		 * Add 'Public Javascript and CSS styles' actions an filters.

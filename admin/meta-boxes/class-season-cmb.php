@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class Season_CMB
 {
 
@@ -56,8 +58,8 @@ class Season_CMB
 	 */
 	public function details_html($post)
 	{
-		$start_date = new DateTime(get_post_meta($post->ID, "_{$this->post_type}_start_date", true));
-		$end_date = new DateTime(get_post_meta($post->ID, "_{$this->post_type}_end_date", true));
+		$start_date = new \DateTime(get_post_meta($post->ID, "_{$this->post_type}_start_date", true));
+		$end_date = new \DateTime(get_post_meta($post->ID, "_{$this->post_type}_end_date", true));
 
 		// Get the options
 		$options = get_option('obcal_options');
@@ -131,8 +133,8 @@ class Season_CMB
 		 * 
 		 */
 
-		$start_date = new DateTime(isset($_POST["{$this->post_type}_start_date"]) ? $_POST["{$this->post_type}_start_date"] : '');
-		$end_date = new DateTime(isset($_POST["{$this->post_type}_end_date"]) ? $_POST["{$this->post_type}_end_date"] : '');
+		$start_date = new \DateTime(isset($_POST["{$this->post_type}_start_date"]) ? $_POST["{$this->post_type}_start_date"] : '');
+		$end_date = new \DateTime(isset($_POST["{$this->post_type}_end_date"]) ? $_POST["{$this->post_type}_end_date"] : '');
 
 		/** 
 		 * Save values in array directly
@@ -186,11 +188,11 @@ class Season_CMB
 
 		switch ( $column ) {
 			case 'start_date':
-			$start_date = new DateTime(get_post_meta($post_id, "_{$this->post_type}_start_date", true));
+			$start_date = new \DateTime(get_post_meta($post_id, "_{$this->post_type}_start_date", true));
 			echo esc_html($start_date->format($options_date_format));
 			break;
 		case 'end_date':
-			$end_date = new DateTime(get_post_meta($post_id, "_{$this->post_type}_end_date", true));
+			$end_date = new \DateTime(get_post_meta($post_id, "_{$this->post_type}_end_date", true));
 			echo esc_html($end_date->format($options_date_format));
 			break;
 		}

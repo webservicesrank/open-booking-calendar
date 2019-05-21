@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Search Accommodations Custom Shortcode
  */

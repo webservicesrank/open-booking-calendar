@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Define the internationalization functionality
  *

@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Availability calendar and booking form
  */
@@ -148,15 +150,15 @@ class BookingCalendar_CSC
         // Get date format
         $options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 
-        $now_date = new DateTime(date_i18n($options_date_format));
+        $now_date = new \DateTime(date_i18n($options_date_format));
 
         $this->max_date = $now_date;
 
         $seasons = get_posts(['post_type' => 'obcal_season', 'numberposts' => -1]);
         $o_seasons = "";
         foreach ($seasons as $season) {
-            $season_start_date = new DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
-            $season_end_date = new DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
+            $season_start_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
+            $season_end_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
 
             $season_price_per_night = get_post_meta($accommodation->ID, "_obcal_accommodation_s{$season->ID}_price_per_night", true);
 
@@ -172,8 +174,8 @@ class BookingCalendar_CSC
                 }
 
                 // Register active_season_date (array of all dates of the seasons) for flatpickr
-                $interval = new DateInterval('P1D');
-                $daterange = new DatePeriod($season_start_date, $interval ,$season_end_date->modify( '+1 day' ));
+                $interval = new \DateInterval('P1D');
+                $daterange = new \DatePeriod($season_start_date, $interval ,$season_end_date->modify( '+1 day' ));
                 foreach($daterange as $date){
                     $this->active_season_dates[] = $date->format($options_date_format);
                 }
@@ -280,8 +282,8 @@ class BookingCalendar_CSC
         $bookings = get_posts(['post_type' => 'obcal_booking', 'numberposts' => -1]);
         foreach ($bookings as $booking) {
 
-            $check_in_date = new DateTime(get_post_meta($booking->ID, "_obcal_booking_check_in_date", true));
-            $check_out_date = new DateTime(get_post_meta($booking->ID, "_obcal_booking_check_out_date", true));
+            $check_in_date = new \DateTime(get_post_meta($booking->ID, "_obcal_booking_check_in_date", true));
+            $check_out_date = new \DateTime(get_post_meta($booking->ID, "_obcal_booking_check_out_date", true));
             $status = get_post_meta($booking->ID, "_obcal_booking_status", true);
 
             if ($status == 'pending' || $status == 'confirmed') {
@@ -295,8 +297,8 @@ class BookingCalendar_CSC
                 }
 
                 // Register reserved_dates (array of all booking dates) for flatpickr
-                $interval_1d = new DateInterval('P1D');
-                $daterange = new DatePeriod($check_in_date, $interval_1d ,$check_out_date_for_range);
+                $interval_1d = new \DateInterval('P1D');
+                $daterange = new \DatePeriod($check_in_date, $interval_1d ,$check_out_date_for_range);
                 foreach($daterange as $date){
                     $reserved_dates[] = $date->format($options_date_format);
                 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class Booking_CPT
 {
 
@@ -101,8 +103,8 @@ class Booking_CPT
 
 		foreach ($seasons as $season) {
 
-			$season_start_date = new DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
-			$season_end_date = new DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
+			$season_start_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_start_date", true));
+			$season_end_date = new \DateTime(get_post_meta($season->ID, "_obcal_season_end_date", true));
 
 			if ($booking_check_in_date >= $season_start_date && $booking_check_out_date <= $season_end_date) { // if is true is a valid season for this booking
 
@@ -124,7 +126,7 @@ class Booking_CPT
 		$availability = false; // by default
 
 		// Interval of one day
-		$interval_1d = new DateInterval('P1D');
+		$interval_1d = new \DateInterval('P1D');
 
 		/**
 		 * Get an array of relevant reserved days
@@ -153,7 +155,7 @@ class Booking_CPT
 			'post_type' => 'obcal_booking',
 		];
 		
-		$query_result = new WP_Query($args);
+		$query_result = new \WP_Query($args);
 
 		// The Loop
 		if ($query_result->have_posts()) {
@@ -166,8 +168,8 @@ class Booking_CPT
 				// Only if not is the currently being saved booking. $booking_being_saved_id = '' for new bookings in csc
 				if ($other_booking->ID != $booking_being_saved_id) {
 
-					$other_check_in_date = new DateTime(get_post_meta($other_booking->ID, "_obcal_booking_check_in_date", true));
-					$other_check_out_date = new DateTime(get_post_meta($other_booking->ID, "_obcal_booking_check_out_date", true));
+					$other_check_in_date = new \DateTime(get_post_meta($other_booking->ID, "_obcal_booking_check_in_date", true));
+					$other_check_out_date = new \DateTime(get_post_meta($other_booking->ID, "_obcal_booking_check_out_date", true));
 		
 					// Same accommodation for all compared bookings
 					$other_accommodation_exclusivity_last_day = get_post_meta($accommodation_id, "_obcal_accommodation_exclusivity_last_day", true);
@@ -177,7 +179,7 @@ class Booking_CPT
 						$other_check_out_date = $other_check_out_date->modify( '+1 day' );
 					}
 
-					$other_daterange = new DatePeriod($other_check_in_date, $interval_1d ,$other_check_out_date);
+					$other_daterange = new \DatePeriod($other_check_in_date, $interval_1d ,$other_check_out_date);
 					foreach($other_daterange as $other_date){
 						$reserved_dates[] = $other_date->format('Y-m-d');
 					}
@@ -205,7 +207,7 @@ class Booking_CPT
 			$check_out_date_for_range->modify( '+1 day' );
 		}
 
-		$daterange = new DatePeriod($check_in_date, $interval_1d ,$check_out_date_for_range);
+		$daterange = new \DatePeriod($check_in_date, $interval_1d ,$check_out_date_for_range);
 		foreach($daterange as $date){
 			$this_booking_dates[] = $date->format('Y-m-d');
 		}

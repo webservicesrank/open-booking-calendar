@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Booking preview
  */
@@ -118,8 +120,8 @@ class BookingReceived_CSC
         if (array_key_exists("confirm_accommodation_id", $_POST) && array_key_exists("confirm_check_in_date", $_POST) && array_key_exists("confirm_check_out_date", $_POST) && array_key_exists("confirm_num_adults", $_POST) && array_key_exists("confirm_num_children", $_POST) && array_key_exists("confirm_us_name", $_POST) && array_key_exists("confirm_us_email", $_POST)) {
 
             $accommodation_id = sanitize_key($_POST['confirm_accommodation_id']);
-            $check_in_date = new DateTime(sanitize_text_field($_POST['confirm_check_in_date']));
-            $check_out_date = new DateTime(sanitize_text_field($_POST['confirm_check_out_date']));
+            $check_in_date = new \DateTime(sanitize_text_field($_POST['confirm_check_in_date']));
+            $check_out_date = new \DateTime(sanitize_text_field($_POST['confirm_check_out_date']));
             $num_adults = sanitize_key($_POST['confirm_num_adults']);
             $num_children = sanitize_key($_POST['confirm_num_children']);
             $us_name = sanitize_text_field($_POST['confirm_us_name']);
@@ -152,7 +154,7 @@ class BookingReceived_CSC
             'post_type' => 'obcal_customer'
         ];
 
-        $query_result = new WP_Query($query_args);
+        $query_result = new \WP_Query($query_args);
 
         if (!$query_result->have_posts()) {
 

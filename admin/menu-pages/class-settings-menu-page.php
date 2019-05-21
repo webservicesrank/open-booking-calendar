@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class SettingsMenuPage
 {
 
@@ -252,7 +254,7 @@ class SettingsMenuPage
         // get the value of the setting we've registered with register_setting()
         $options = get_option('obcal_options');
 
-        $now_date = new DateTime(date_i18n('Y-m-d'));
+        $now_date = new \DateTime(date_i18n('Y-m-d'));
 
         $date_formats = [
             'Y-m-d' => $now_date->format('Y-m-d') . ' &nbsp;&nbsp;&nbsp; [Y-m-d]',

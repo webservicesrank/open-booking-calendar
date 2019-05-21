@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Open Booking Calendar
  * Plugin URI:        https://webservicesrank.com/wp-plugins/open-booking-calendar/
- * Description:       Manage your hotel booking services.
+ * Description:       Manage your hotel booking services. Only add seasons and accommodations and easily receive reservations.
  * Version:           1.0.0
  * Author:            WebServicesRank.com, Fabián Karaben
  * Author URI:        https://webservicesrank.com/
@@ -43,7 +43,7 @@ define( 'OPEN_BOOKING_CALENDAR_VERSION', '1.0.0' );
  */
 function activate_open_booking_calendar() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-open-booking-calendar-activator.php';
-	Open_Booking_Calendar_Activator::activate();
+	\OBCal\Open_Booking_Calendar_Activator::activate();
 }
 
 /**
@@ -52,7 +52,7 @@ function activate_open_booking_calendar() {
  */
 function deactivate_open_booking_calendar() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-open-booking-calendar-deactivator.php';
-	Open_Booking_Calendar_Deactivator::deactivate();
+	\OBCal\Open_Booking_Calendar_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_open_booking_calendar' );
@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-open-booking-calendar.php'
  */
 function run_open_booking_calendar() {
 
-	$plugin = new Open_Booking_Calendar();
+	$plugin = new \OBCal\Open_Booking_Calendar();
 	$plugin->run();
 
 }

@@ -1,114 +1,71 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://webservicesrank.com/
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors: webservicesrank, fabiankaraben
+Tags: open booking calendar, booking calendar, booking system, availability calendar, events calendar, appointments , booking form, reservation, availability, calendar, Booking Calendar
+Requires at least: 4.5
+Tested up to: 5.2
+Stable tag: 1.0.0
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Manage your hotel booking services. Only add seasons and accommodations and easily receive reservations.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+With Open Booking Calendar you can manage your hotel booking services. Only add seasons and your accommodations and easily receive reservations.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+= Introduction =
 
-A few notes about the sections above:
+To make a reservation a visitor or client must enter the page of a accommodation, choose the dates of check-in and check-out, complete the form and press the "Preview booking" button.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+The next screen is "Preview of the booking" where the visitor or client can see details of the reservation, such as the price and if a Promotion applies.
+Finally, clicking on the "Confirm booking" button will go to the screen where a "Reservation received" message will be displayed.
+At that moment a new reservation is generated in the "Pending" status and two emails will be sent, one to the client and another to the reservation system administrator.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+When the reservation manager changes the status of the reservation from "Pending" to "Confirmed" or to "Canceled" a notification email will also be sent to the client.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+= Optional step =
+
+Optionally you can install **Open Booking Calendar Plus**, our **free plugin** that adds interesting features to this plugin
+
+You can **download** Open Booking Calendar Plus 100% free from [Download](https://webservicesrank.com/wp-plugins/open-booking-calendar-plus), and then from the "Plugins" section of WordPress, upload the file open-booking-calendar-plus.zip for installation.
+
+**Notice:** it is necessary to provide a valid email to download Open Booking Calendar Plus, this way we will send you notifications when a new version of the plugin Plus is available.
+
+= Steps to follow for a quick start  =
+
+- Add the general pages
+- Add the seasons
+- Add the accommodations
+- Add the promotions (Free Plus feature)
+
+= Other interesting features =
+
+- 'Contact Log' (Free Plus feature): Each time a visitor preview a reservation or perform a search for accommodation, a record is kept for future inquiries.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `open-booking-calendar.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('open_booking_calendar_hook'); ?>` in your templates
+1. Install using the WordPress built-in Plugin installer, or Extract the zip file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Go to 'Bookings > Get Started and Help' to start with 4 simple steps.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Source Code, Suggestions & Issues =
 
-An answer to that question.
+**ON THE PUBLIC GITHUB YOU CAN**
 
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+- [Download the source code](https://github.com/webservicesrank/open-booking-calendar)
+- [Request a feature](https://github.com/webservicesrank/open-booking-calendar/issues)
+- [Submit an issue](https://github.com/webservicesrank/open-booking-calendar/issues)
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. **The Bookings menu**
+2. **The public accommodation view**
+3. **The public Booking preview**
+4. **The pubilc Booking received**
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0.0 =
+* The first usable plugin code.

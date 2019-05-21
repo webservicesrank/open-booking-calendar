@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class Customer_CPT
 {
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 class Booking_CMB
 {
 	/**
@@ -85,8 +87,8 @@ class Booking_CMB
 		$accommodation_id = get_post_meta($post->ID, "_{$this->post_type}_accommodation_id", true);
 		$num_adults = get_post_meta($post->ID, "_{$this->post_type}_num_adults", true);
 		$num_children = get_post_meta($post->ID, "_{$this->post_type}_num_children", true);
-		$check_in_date = new DateTime(get_post_meta($post->ID, "_{$this->post_type}_check_in_date", true));
-		$check_out_date = new DateTime(get_post_meta($post->ID, "_{$this->post_type}_check_out_date", true));
+		$check_in_date = new \DateTime(get_post_meta($post->ID, "_{$this->post_type}_check_in_date", true));
+		$check_out_date = new \DateTime(get_post_meta($post->ID, "_{$this->post_type}_check_out_date", true));
 		$status = get_post_meta($post->ID, "_{$this->post_type}_status", true);
 
 		$customers = get_posts(['post_type' => 'obcal_customer', 'numberposts' => -1]);
@@ -205,8 +207,8 @@ class Booking_CMB
 
 		$booking_season_id = get_post_meta($post->ID, "_{$this->post_type}_season_id", true);
 		$booking_season = get_post($booking_season_id);
-		$booking_season_start_date = new DateTime(get_post_meta($booking_season->ID, "_obcal_season_start_date", true));
-		$booking_season_end_date = new DateTime(get_post_meta($booking_season->ID, "_obcal_season_end_date", true));
+		$booking_season_start_date = new \DateTime(get_post_meta($booking_season->ID, "_obcal_season_start_date", true));
+		$booking_season_end_date = new \DateTime(get_post_meta($booking_season->ID, "_obcal_season_end_date", true));
 
 		$booking_total_price = get_post_meta($post->ID, "_{$this->post_type}_total_price", true);
 
@@ -362,8 +364,8 @@ class Booking_CMB
 		if (array_key_exists("{$this->post_type}_accommodation_id", $_POST) && array_key_exists("{$this->post_type}_check_in_date", $_POST) && array_key_exists("{$this->post_type}_check_out_date", $_POST)) {
 
 			$accommodation_id = $_POST["{$this->post_type}_accommodation_id"];
-			$check_in_date =  new DateTime($_POST["{$this->post_type}_check_in_date"]);
-			$check_out_date = new DateTime($_POST["{$this->post_type}_check_out_date"]);
+			$check_in_date =  new \DateTime($_POST["{$this->post_type}_check_in_date"]);
+			$check_out_date = new \DateTime($_POST["{$this->post_type}_check_out_date"]);
 
 			/**
 			 * Get indirect (calculated) values
@@ -503,7 +505,7 @@ class Booking_CMB
 			// Get date format
 			$options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 			// Get and print check-in date
-			$check_in_date = new DateTime(get_post_meta($post_id, "_{$this->post_type}_check_in_date", true));
+			$check_in_date = new \DateTime(get_post_meta($post_id, "_{$this->post_type}_check_in_date", true));
 			echo esc_html($check_in_date->format($options_date_format));
 			break;
 		case 'num_nights':

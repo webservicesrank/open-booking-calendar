@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Register all actions and filters for the plugin
  *

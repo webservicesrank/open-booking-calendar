@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Fired during plugin deactivation
  *

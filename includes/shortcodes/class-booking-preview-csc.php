@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * Booking preview
  */
@@ -172,8 +174,8 @@ class BookingPreview_CSC
             // Get date format
             $options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 
-            $check_in_date = new DateTime($check_in_date);
-            $check_out_date = new DateTime($check_out_date);
+            $check_in_date = new \DateTime($check_in_date);
+            $check_out_date = new \DateTime($check_out_date);
 
             $accommodation = get_post($accommodation_id);
 

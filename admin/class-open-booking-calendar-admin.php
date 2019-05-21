@@ -1,5 +1,7 @@
 <?php
 
+namespace OBCal;
+
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -112,11 +114,11 @@ class Open_Booking_Calendar_Admin {
 		add_menu_page(
 			__( 'Bookings', 'open-booking-calendar' ),
 			__( 'Bookings', 'open-booking-calendar' ),
-			Booking_CPT::$mainAdminMenuCapability,
-			Booking_CPT::$mainAdminMenuSlug,
+			\OBCal\Booking_CPT::$mainAdminMenuCapability,
+			\OBCal\Booking_CPT::$mainAdminMenuSlug,
 			'__return_false',
 			'dashicons-calendar-alt',
-			Booking_CPT::$mainAdminMenuPosition
+			\OBCal\Booking_CPT::$mainAdminMenuPosition
 		);
 	}
 
