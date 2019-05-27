@@ -211,6 +211,8 @@ class Booking_CMB
 		$booking_season_end_date = new \DateTime(get_post_meta($booking_season->ID, "_obcal_season_end_date", true));
 
 		$booking_total_price = get_post_meta($post->ID, "_{$this->post_type}_total_price", true);
+		$currency_code = get_post_meta($post->ID, "_{$this->post_type}_currency_code", true);
+		$currency_symbol = get_post_meta($post->ID, "_{$this->post_type}_currency_symbol", true);
 
 		// Get the options
 		$options = get_option('obcal_options');
@@ -287,7 +289,7 @@ class Booking_CMB
 
 					}else{
 
-						echo esc_html( "$" . $booking_total_price );
+						echo esc_html( strtoupper($currency_code) . ' ' . $currency_symbol . ' ' . $booking_total_price );
 
 					}
 					?>
@@ -512,7 +514,10 @@ class Booking_CMB
 			echo esc_html(get_post_meta( $post_id , "_{$this->post_type}_num_nights" , true ));
 			break;
 		case 'total_price':
-			echo esc_html("$" . get_post_meta( $post_id , "_{$this->post_type}_total_price" , true ));
+			$booking_total_price = get_post_meta($post_id, "_{$this->post_type}_total_price", true);
+			$currency_code = strtoupper(get_post_meta($post_id, "_{$this->post_type}_currency_code", true));
+			$currency_symbol = get_post_meta($post_id, "_{$this->post_type}_currency_symbol", true);		
+			echo esc_html($currency_code . ' ' . $currency_symbol . ' ' . $booking_total_price);
 			break;
 		case 'status':
 			echo esc_html($this->statuses[get_post_meta( $post_id , "_{$this->post_type}_status" , true )]);

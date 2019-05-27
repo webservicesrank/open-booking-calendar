@@ -218,7 +218,9 @@ class SearchResults_CSC
 
                 if ($has_active_seasons) {
 
-                    $accommodation_url = esc_url(get_permalink($accommodation->ID));
+                    $accommodation_info_page_id = get_post_meta($accommodation->ID, "_obcal_accommodation_info_page_id", true);
+
+                    $accommodation_url = esc_url(get_permalink($accommodation_info_page_id));
 
                     $o .= '<tr><th scope="row">';
 

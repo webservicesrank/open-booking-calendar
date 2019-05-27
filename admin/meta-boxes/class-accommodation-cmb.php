@@ -23,6 +23,15 @@ class Accommodation_CMB
 	 */
 	private $version;
 
+	/**
+	 * The plugin core class intance
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      object    $plugin_core    The plugin core class intance.
+	 */
+	protected $plugin_core;
+
 	protected $post_type = 'obcal_accommodation';
 
 	/**
@@ -32,11 +41,12 @@ class Accommodation_CMB
 	 * @param      string    $open_booking_calendar       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct($open_booking_calendar, $version)
+	public function __construct($open_booking_calendar, $version, $plugin_core)
 	{
 
 		$this->open_booking_calendar = $open_booking_calendar;
 		$this->version = $version;
+		$this->plugin_core = $plugin_core;
 
 	}
 	
@@ -119,6 +129,9 @@ class Accommodation_CMB
 		$season = $args['args'][0];
 
 		$price_per_night = get_post_meta($post->ID, "_{$this->post_type}_s{$season->ID}_price_per_night", true);
+		$currency_code = get_post_meta($post->ID, "_{$this->post_type}_currency_code", true);
+		$currency_symbol = get_post_meta($post->ID, "_{$this->post_type}_currency_symbol", true);
+
 		?>
 		<table class="form-table">
 			<tr>
@@ -126,7 +139,9 @@ class Accommodation_CMB
 					<label for="<?= esc_attr($this->post_type . '_season_' . $season->ID . '_price_per_night') ?>"><?php esc_html_e('Price per night', 'open-booking-calendar'); ?></label>
 				</th>
 				<td>
-					$<input type="number" min="0" name="<?= esc_attr($this->post_type . '_season_' . $season->ID . '_price_per_night') ?>" id="<?= esc_attr($this->post_type . '_season_' . $season->ID . '_price_per_night') ?>" value="<?= esc_attr($price_per_night) ?>">
+					<?= $currency_symbol ?> 
+					<input type="number" min="0" name="<?= esc_attr($this->post_type . '_season_' . $season->ID . '_price_per_night') ?>" id="<?= esc_attr($this->post_type . '_season_' . $season->ID . '_price_per_night') ?>" value="<?= esc_attr($price_per_night) ?>"> 
+					<?= strtoupper( $currency_code ) ?>
 				</td>
 			</tr>
 		</table>			
@@ -266,8 +281,17 @@ class Accommodation_CMB
 		// Keys of the values to save directly
 		$keys_to_save_directly = ['max_adults', 'max_children', 'info_page_id', 'booking_preview_page_id', 'booking_received_page_id', 'exclusivity_last_day', 'min_num_nights'];
 
+		// Get currencies
+		$currencies = $this->plugin_core->get_currencies();
+
 		// Seasons to save their prices
 		$seasons = get_posts(['post_type' => 'obcal_season', 'numberposts' => -1]);
+
+		// Get the options
+		$options = get_option('obcal_options');
+
+		// Get the general currency
+		$system_currency_code = isset($options['obcal_field_system_currency_code']) ? strtolower($options['obcal_field_system_currency_code']) : 'usd';
 
 		/** 
 		 * Sanitize POST values
@@ -396,6 +420,22 @@ class Accommodation_CMB
 				);
 			}	
 		}
+
+		/**
+		 * Save the currency
+		 */
+
+		update_post_meta(
+			$post_id,
+			"_{$this->post_type}_currency_code",
+			$system_currency_code
+		);
+
+		update_post_meta(
+			$post_id,
+			"_{$this->post_type}_currency_symbol",
+			array_key_exists( $system_currency_code, $currencies ) ? $currencies[$system_currency_code]['symbol'] : '$'
+		);
 
 	}
 

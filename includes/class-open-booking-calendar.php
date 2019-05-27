@@ -276,7 +276,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Accommodation custom meta boxes' actions an filters.
 		 */
-		$accommodation_cmb = new \OBCal\Accommodation_CMB( $this->get_open_booking_calendar(), $this->get_version() );
+		$accommodation_cmb = new \OBCal\Accommodation_CMB( $this->get_open_booking_calendar(), $this->get_version(), $this );
 		$this->loader->add_action( 'add_meta_boxes', $accommodation_cmb, 'register');
 		$this->loader->add_action( 'save_post_obcal_accommodation', $accommodation_cmb, 'save');
 		$this->loader->add_filter( 'manage_obcal_accommodation_posts_columns', $accommodation_cmb, 'add_table_custom_columns');
@@ -315,7 +315,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Booking preview custom shortcode' actions an filters.
 		 */
-		$booking_preview_csc = new \OBCal\BookingPreview_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this->booking_cpt );
+		$booking_preview_csc = new \OBCal\BookingPreview_CSC( $this->get_open_booking_calendar(), $this->get_version(), $this, $this->booking_cpt );
 		$this->loader->add_action( 'init', $booking_preview_csc, 'register');
 
 		/**
@@ -369,7 +369,7 @@ class Open_Booking_Calendar {
 		/**
 		 * Add 'Settings page' actions an filters.
 		 */
-		$settings_admin = new \OBCal\SettingsMenuPage( $this->get_open_booking_calendar(), $this->get_version() );
+		$settings_admin = new \OBCal\SettingsMenuPage( $this->get_open_booking_calendar(), $this->get_version(), $this );
 		$this->loader->add_action( 'admin_menu', $settings_admin, 'create_submenu' );
 		$this->loader->add_action( 'admin_init', $settings_admin, 'settings_init' );
 
@@ -432,6 +432,26 @@ class Open_Booking_Calendar {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Retrieve the array of the currency codes and symbols of the plugin.
+	 *
+	 * @since     1.0.0
+	 * @return    array    The the array of the currency codes and symbols of the plugin.
+	 */
+	public function get_currencies() {
+
+		return [
+            'usd' => ['symbol' => '$', 'title' => __('US Dollar', 'open-booking-calendar')],
+            'cad' => ['symbol' => '$', 'title' => __('Canadian Dollar', 'open-booking-calendar')],
+            'eur' => ['symbol' => '€', 'title' => __('Euro', 'open-booking-calendar')],
+            'brl' => ['symbol' => 'R$', 'title' => __('Brazilian Real', 'open-booking-calendar')],
+            'aud' => ['symbol' => '$', 'title' => __('Australian Dollar', 'open-booking-calendar')],
+            'mxn' => ['symbol' => '$', 'title' => __('Mexican Peso', 'open-booking-calendar')],
+            'gbp' => ['symbol' => '£', 'title' => __('Pound Sterling', 'open-booking-calendar')],
+            'ars' => ['symbol' => '$', 'title' => __('Argentine Peso', 'open-booking-calendar')],
+		];
 	}
 
 }

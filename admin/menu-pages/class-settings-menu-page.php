@@ -23,6 +23,15 @@ class SettingsMenuPage
      */
     private $version;
 
+	/**
+	 * The plugin core class intance
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      object    $plugin_core    The plugin core class intance.
+	 */
+    protected $plugin_core;
+    
 	public static $mainAdminMenuCapability = 'manage_options';
 	public static $mainAdminMenuSlug = 'open-booking-calendar';
 
@@ -33,11 +42,13 @@ class SettingsMenuPage
      * @param      string    $open_booking_calendar     The name of the plugin.
      * @param      string    $version                   The version of this plugin.
      */
-    public function __construct($open_booking_calendar, $version)
+    public function __construct($open_booking_calendar, $version, $plugin_core)
     {
 
         $this->open_booking_calendar = $open_booking_calendar;
         $this->version = $version;
+        $this->plugin_core = $plugin_core;
+
     }
 
     /**
@@ -177,6 +188,34 @@ class SettingsMenuPage
             [
                 'label_for' => 'obcal_field_email_notifications_user_id',
                 'class' => 'obcal-email-notifications-user',
+            ]
+        );
+
+        // register a new field in the "section_developers" section, inside the "obcal" page
+        add_settings_field(
+            'obcal_field_system_currency_code', // as of WP 4.6 this value is used only internally
+            // use $args' label_for to populate the id inside the callback
+            __('System currency', 'open-booking-calendar'),
+            [$this, 'field_system_currency_code_cb'],
+            'obcal',
+            'section_developers',
+            [
+                'label_for' => 'obcal_field_system_currency_code',
+                'class' => 'obcal-system-currency-code',
+            ]
+        );
+
+        // register a new field in the "section_developers" section, inside the "obcal" page
+        add_settings_field(
+            'obcal_field_show_currency_code', // as of WP 4.6 this value is used only internally
+            // use $args' label_for to populate the id inside the callback
+            __('Show currency code', 'open-booking-calendar'),
+            [$this, 'field_show_currency_code_cb'],
+            'obcal',
+            'section_developers',
+            [
+                'label_for' => 'obcal_field_show_currency_code',
+                'class' => 'obcal-show-currency-code',
             ]
         );
 
@@ -348,6 +387,78 @@ class SettingsMenuPage
         </select>
         <p class="description">
             <?php esc_html_e('User to send email notifications when internal events occur such as the creation of a reservation.', 'open-booking-calendar'); ?>
+        </p>
+    <?php
+    }
+
+    // pill field cb
+
+    // field callbacks can accept an $args parameter, which is an array.
+    // $args is defined at the add_settings_field() function.
+    // wordpress has magic interaction with the following keys: label_for, class.
+    // the "label_for" key value is used for the "for" attribute of the <label>.
+    // the "class" key value is used for the "class" attribute of the <tr> containing the field.
+    // you can add custom key value pairs to be used inside your callbacks.
+    public function field_system_currency_code_cb($args)
+    {
+        // get the value of the setting we've registered with register_setting()
+        $options = get_option('obcal_options');
+
+        // Get currencies
+        $currencies = $this->plugin_core->get_currencies();
+
+        // output the field
+        ?>
+        <select id="<?php echo esc_attr($args['label_for']); ?>" name="obcal_options[<?php echo esc_attr($args['label_for']); ?>]">
+            <?php
+            foreach($currencies as $currency_key => $currency_value) {
+            ?>
+            <option value="<?php echo esc_attr($currency_key); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $currency_key, false)) : (''); ?>>
+                <?php echo esc_html(strtoupper($currency_key) . ' » ' . $currency_value['title'] . ' (' . $currency_value['symbol'] . ')'); ?>
+            </option>
+            <?php
+            }
+            ?>
+        </select>
+        <p class="description">
+            <?php esc_html_e('Currency of the prices.', 'open-booking-calendar'); ?>
+        </p>
+    <?php
+    }
+
+    // pill field cb
+
+    // field callbacks can accept an $args parameter, which is an array.
+    // $args is defined at the add_settings_field() function.
+    // wordpress has magic interaction with the following keys: label_for, class.
+    // the "label_for" key value is used for the "for" attribute of the <label>.
+    // the "class" key value is used for the "class" attribute of the <tr> containing the field.
+    // you can add custom key value pairs to be used inside your callbacks.
+    public function field_show_currency_code_cb($args)
+    {
+        // get the value of the setting we've registered with register_setting()
+        $options = get_option('obcal_options');
+
+        $select_options = [
+            '0' => __('No, do not show the currency code', 'open-booking-calendar'),
+            '1' => __('Yes, show the currency code', 'open-booking-calendar'),
+        ];
+
+        // output the field
+        ?>
+        <select id="<?php echo esc_attr($args['label_for']); ?>" name="obcal_options[<?php echo esc_attr($args['label_for']); ?>]">
+            <?php
+            foreach($select_options as $select_option_key => $select_option_value) {
+            ?>
+            <option value="<?php echo esc_attr($select_option_key); ?>" <?php echo isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $select_option_key, false)) : (''); ?>>
+                <?php echo esc_html($select_option_value); ?>
+            </option>
+            <?php
+            }
+            ?>
+        </select>
+        <p class="description">
+            <?php esc_html_e('Show the currency code next to the symbol in the prices. Example: USD $ 100', 'open-booking-calendar'); ?>
         </p>
     <?php
     }

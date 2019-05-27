@@ -16,8 +16,8 @@
  * Plugin Name:       Open Booking Calendar
  * Plugin URI:        https://webservicesrank.com/wp-plugins/open-booking-calendar/
  * Description:       Manage your hotel booking services. Only add seasons and accommodations and easily receive reservations.
- * Version:           1.0.0
- * Author:            WebServicesRank.com, Fabián Karaben
+ * Version:           1.0.2
+ * Author:            Web Services Rank
  * Author URI:        https://webservicesrank.com/
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'OPEN_BOOKING_CALENDAR_VERSION', '1.0.0' );
+define( 'OPEN_BOOKING_CALENDAR_VERSION', '1.0.2' );
 
 /**
  * The code that runs during plugin activation.

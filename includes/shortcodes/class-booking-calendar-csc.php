@@ -80,6 +80,9 @@ class BookingCalendar_CSC
             }
         }
 
+        // Get the options
+        $options = get_option('obcal_options');
+
         // start output
         $o = '';
 
@@ -99,11 +102,11 @@ class BookingCalendar_CSC
             $is_valid_accommodation = true;
 
             // Show seasons
-            $o .= $this->content_seasons($obcal_atts, $accommodation);
+            $o .= $this->content_seasons($obcal_atts, $accommodation, $options);
 
             if( defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ) {
                 // Show promotions
-                $o .= $this->content_promotions($obcal_atts, $accommodation);
+                $o .= $this->content_promotions($obcal_atts, $accommodation, $options);
             }
 
             // Show availability calendar
@@ -138,17 +141,21 @@ class BookingCalendar_CSC
     /**
      * Show seasons in the shortcode content
      */
-    private function content_seasons($obcal_atts, $accommodation)
+    private function content_seasons($obcal_atts, $accommodation, $options)
     {
 
         // start output
         $o = '';
 
-        // Get the options
-        $options = get_option('obcal_options');
-
         // Get date format
         $options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
+
+        // Get if show de currency code
+        $show_currency_code = isset($options['obcal_field_show_currency_code']) ? $options['obcal_field_show_currency_code'] : '1';
+
+        // Get the accommodation currency and currency symbol
+        $accommodation_currency_code = rest_sanitize_boolean($show_currency_code) ? strtoupper(get_post_meta($accommodation->ID, "_obcal_accommodation_currency_code", true)) : '';
+        $accommodation_currency_symbol = get_post_meta($accommodation->ID, "_obcal_accommodation_currency_symbol", true);
 
         $now_date = new \DateTime(date_i18n($options_date_format));
 
@@ -166,7 +173,7 @@ class BookingCalendar_CSC
                 // Register season ID
                 $this->active_season_ids[] = $season->ID;
                 // Generate the season item to be printed
-                $o_seasons .= "<li>" . esc_html($season->post_title) . ($obcal_atts['show_seasons_dates'] == true ? '<span class="season-dates">' . esc_html("({$season_start_date->format($options_date_format)} - {$season_end_date->format($options_date_format)})") . "</span>" : "") . ($obcal_atts['show_seasons_price'] == true ? '<span class="season-price">$' . esc_html($season_price_per_night . " " . __('per night', 'open-booking-calendar')) . "</span>" : "") . "</li>";
+                $o_seasons .= "<li>" . esc_html($season->post_title) . ($obcal_atts['show_seasons_dates'] == true ? '<span class="season-dates">' . esc_html("({$season_start_date->format($options_date_format)} - {$season_end_date->format($options_date_format)})") . "</span>" : "") . ($obcal_atts['show_seasons_price'] == true ? '<span class="season-price">' . esc_html($accommodation_currency_code . ' ' . $accommodation_currency_symbol . ' ' . $season_price_per_night . " " . __('per night', 'open-booking-calendar')) . "</span>" : "") . "</li>";
 
                 // Register max_date for flatpickr
                 if ($season_end_date > $this->max_date) {
@@ -201,11 +208,14 @@ class BookingCalendar_CSC
     /**
      * Show promotions in the shortcode content
      */
-    private function content_promotions($obcal_atts, $accommodation)
+    private function content_promotions($obcal_atts, $accommodation, $options)
     {
 
         // start output
         $o = '';
+
+        // Get if show de currency code
+        $show_currency_code = isset($options['obcal_field_show_currency_code']) ? $options['obcal_field_show_currency_code'] : '1';
 
         $promotions = get_posts(['post_type' => 'obcal_promotion', 'numberposts' => -1]);
         $o_promotions = "";
@@ -221,9 +231,13 @@ class BookingCalendar_CSC
                 $promotion_num_nights = get_post_meta($promotion->ID, "_obcal_promotion_num_nights", true);
                 $promotion_total_price = get_post_meta($promotion->ID, "_obcal_promotion_total_price", true);
 
+                // Get the currency code and currency symbol
+                $currency_code = rest_sanitize_boolean($show_currency_code) ? strtoupper(get_post_meta($promotion->ID, "_obcal_promotion_currency_code", true)) : '';
+                $currency_symbol = get_post_meta($promotion->ID, "_obcal_promotion_currency_symbol", true);
+
                 $o_promotions .= "<li>";
                 $o_promotions .= esc_html($promotion->post_title) . ':<span class="promotion-num-nights">' . esc_html($promotion_num_nights . ' ' . __('nights', 'open-booking-calendar')) . '</span>';
-                $o_promotions .= '<span class="promotion-price"> ' . esc_html( __('for', 'open-booking-calendar') . ' $' . $promotion_total_price ) . '</span>';
+                $o_promotions .= '<span class="promotion-price"> ' . esc_html( __('for', 'open-booking-calendar') . ' ' . $currency_code . ' ' . $currency_symbol . ' ' . $promotion_total_price ) . '</span>';
                 $o_promotions .= '<span class="promotion-season"> ' . esc_html( '(' . __('Season', 'open-booking-calendar') . ': ' . $promotion_season->post_title ) . ')</span>';
                 $o_promotions .= "</li>";
 

@@ -1,19 +1,30 @@
-=== Plugin Name ===
+=== Open Booking Calendar ===
 Contributors: webservicesrank, fabiankaraben
-Tags: open booking calendar, booking calendar, booking system, availability calendar, events calendar, appointments , booking form, reservation, availability, calendar, Booking Calendar
+Tags: open booking calendar, booking calendar, booking system, availability calendar, events calendar, appointments , booking form, reservation, availability, calendar, Booking Calendar, Web Services Rank
 Requires at least: 4.5
 Tested up to: 5.2
-Stable tag: 1.0.0
+Requires PHP: 5.4
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Manage your hotel booking services. Only add seasons and accommodations and easily receive reservations.
+With Open Booking Calendar you can manage your hotel booking services, easy and 100% FREE.
 
 == Description ==
 
-With Open Booking Calendar you can manage your hotel booking services. Only add seasons and your accommodations and easily receive reservations.
+With Open Booking Calendar you can manage your hotel booking services, easy and 100% FREE. Only add seasons and accommodations and easily receive reservations.
 
-= Introduction =
+https://www.youtube.com/watch?v=bK3UJH-T6wk
+
+== How can it be 100% free? ==
+
+This plugin is free thanks to affiliate programs. If you need web hosting please use the following link and help us keep growing:
+
+[See the offers of our favorite web hosting](https://webservicesrank.com/thanks-for-your-help)
+
+Thanks for your help!
+
+== Introduction ==
 
 To make a reservation a visitor or client must enter the page of a accommodation, choose the dates of check-in and check-out, complete the form and press the "Preview booking" button.
 
@@ -23,7 +34,7 @@ At that moment a new reservation is generated in the "Pending" status and two em
 
 When the reservation manager changes the status of the reservation from "Pending" to "Confirmed" or to "Canceled" a notification email will also be sent to the client.
 
-= Optional step =
+== Optional step ==
 
 Optionally you can install **Open Booking Calendar Plus**, our **free plugin** that adds interesting features to this plugin
 
@@ -31,14 +42,14 @@ You can **download** Open Booking Calendar Plus 100% free from [Download](https:
 
 **Notice:** it is necessary to provide a valid email to download Open Booking Calendar Plus, this way we will send you notifications when a new version of the plugin Plus is available.
 
-= Steps to follow for a quick start  =
+== Steps to follow for a quick start  ==
 
 - Add the general pages
 - Add the seasons
 - Add the accommodations
 - Add the promotions (Free Plus feature)
 
-= Other interesting features =
+== Other interesting features ==
 
 - 'Contact Log' (Free Plus feature): Each time a visitor preview a reservation or perform a search for accommodation, a record is kept for future inquiries.
 
@@ -58,14 +69,27 @@ You can **download** Open Booking Calendar Plus 100% free from [Download](https:
 - [Request a feature](https://github.com/webservicesrank/open-booking-calendar/issues)
 - [Submit an issue](https://github.com/webservicesrank/open-booking-calendar/issues)
 
+**THIS PLUGIN USE**
+- [flatpickr. Star flatpickr on GitHub](https://github.com/flatpickr/flatpickr)
+
 == Screenshots ==
 
-1. **The Bookings menu**
-2. **The public accommodation view**
-3. **The public Booking preview**
-4. **The pubilc Booking received**
+1. **Add and edit Seasons**
+2. **Add and edit Accommodations**
+3. **Add and edit Promotions**
+4. **Public accommodation page top part**
+5. **Public accommodation page bottom part**
+6. **Public Booking preview page**
+7. **Public Booking received page**
+8. **Table of all Bookings**
+9. **Table of Customers**
+10. **Table of Log of Contacts**
+11. **Admin Settings page**
 
 == Changelog ==
 
 = 1.0.0 =
 * The first usable plugin code.
+
+= 1.0.2 =
+* Added support for several currencies.

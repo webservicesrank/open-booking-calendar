@@ -197,6 +197,14 @@ class BookingReceived_CSC
 		// Get date format
 		$options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
 
+        // Get if show de currency code
+        $show_currency_code = isset($options['obcal_field_show_currency_code']) ? $options['obcal_field_show_currency_code'] : '1';
+
+        // Get accommodation currency
+		$accommodation_currency_code = get_post_meta($accommodation_id, "_obcal_accommodation_currency_code", true);
+		$accommodation_currency_symbol = get_post_meta($accommodation_id, "_obcal_accommodation_currency_symbol", true);
+
+
         /**
          * Get indirect (calculated) values
          */
@@ -253,6 +261,8 @@ class BookingReceived_CSC
                     '_obcal_booking_num_adults' => $num_adults,
                     '_obcal_booking_num_children' => $num_children,
                     '_obcal_booking_promotion_id' => $promotion_id,
+                    '_obcal_booking_currency_code' => $accommodation_currency_code,
+                    '_obcal_booking_currency_symbol' => $accommodation_currency_symbol,
                     '_obcal_booking_status' => 'pending',
                 ]
             ]);
@@ -295,7 +305,9 @@ class BookingReceived_CSC
                 'num_nights' => $num_nights,
                 'season_id' => $season_id,
                 'promotion_id' => $promotion_id,
-                'total_price' => $total_price,              
+                'total_price' => $total_price,
+                'currency_code' => rest_sanitize_boolean($show_currency_code) ? strtoupper($accommodation_currency_code) : '',
+                'currency_symbol' => $accommodation_currency_symbol,              
             ];
 
             // Send email to admin

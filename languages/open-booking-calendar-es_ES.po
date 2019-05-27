@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Booking Calendar v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-05-20 10:50-0300\n"
+"POT-Creation-Date: 2019-05-26 12:27-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Web Services Rank <support@webservicesrank.com>\n"
@@ -20,96 +20,104 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.2.2\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-open-booking-calendar-admin.php:113
-#: admin/class-open-booking-calendar-admin.php:114
-#: includes/post-types/class-booking-cpt.php:48
+#: admin/class-open-booking-calendar-admin.php:115
+#: admin/class-open-booking-calendar-admin.php:116
+#: includes/post-types/class-booking-cpt.php:50
 msgid "Bookings"
 msgstr "Reservas"
 
-#: admin/menu-pages/class-help-menu-page.php:50
+#: admin/menu-pages/class-help-menu-page.php:52
 #: admin/partials/menu-page-help-display.php:19
 msgid "Get started and Help"
 msgstr "Inicio rápido y Ayuda"
 
-#: admin/menu-pages/class-help-menu-page.php:51
+#: admin/menu-pages/class-help-menu-page.php:53
 #: admin/partials/menu-page-help-display.php:136
 msgid "Get Started & Help"
 msgstr "Inicio rápido & Ayuda"
 
-#: admin/menu-pages/class-settings-menu-page.php:48
-#: admin/menu-pages/class-settings-menu-page.php:49
+#: admin/menu-pages/class-settings-menu-page.php:61
+#: admin/menu-pages/class-settings-menu-page.php:62
 #: admin/partials/menu-page-help-display.php:140
 msgid "Settings"
 msgstr "Ajustes"
 
-#: admin/menu-pages/class-settings-menu-page.php:86
+#: admin/menu-pages/class-settings-menu-page.php:99
 msgid "Settings Saved"
 msgstr "Ajustes guardados"
 
-#: admin/menu-pages/class-settings-menu-page.php:102
+#: admin/menu-pages/class-settings-menu-page.php:115
 msgid "Save Settings"
 msgstr "Guardar ajustes"
 
-#: admin/menu-pages/class-settings-menu-page.php:120
+#: admin/menu-pages/class-settings-menu-page.php:133
 msgid "Open Booking Calendar configuration options."
 msgstr "Opciones de configuración de Open Booking Calendar."
 
-#: admin/menu-pages/class-settings-menu-page.php:129
+#: admin/menu-pages/class-settings-menu-page.php:142
 msgid "Calendar theme"
 msgstr "Tema del calendario"
 
-#: admin/menu-pages/class-settings-menu-page.php:143
+#: admin/menu-pages/class-settings-menu-page.php:156
 msgid "Date format"
 msgstr "Formato de fechas"
 
-#: admin/menu-pages/class-settings-menu-page.php:157
+#: admin/menu-pages/class-settings-menu-page.php:170
 msgid "Search results page"
 msgstr "Página de resultados de búsqueda"
 
-#: admin/menu-pages/class-settings-menu-page.php:171
+#: admin/menu-pages/class-settings-menu-page.php:184
 msgid "User to send email notifications"
 msgstr "Usuario para enviar notificaciones vía email"
 
-#: admin/menu-pages/class-settings-menu-page.php:196
+#: admin/menu-pages/class-settings-menu-page.php:198
+msgid "System currency"
+msgstr "Moneda del sistema"
+
+#: admin/menu-pages/class-settings-menu-page.php:212
+msgid "Show currency code"
+msgstr "Mostrar el código de la moneda"
+
+#: admin/menu-pages/class-settings-menu-page.php:237
 msgid "From this section you can customize the behavior of the plugin."
 msgstr "Desde esta sección puede personalizar el comportamiento del plugin."
 
-#: admin/menu-pages/class-settings-menu-page.php:214
+#: admin/menu-pages/class-settings-menu-page.php:255
 msgid "Default"
 msgstr "Por defecto"
 
-#: admin/menu-pages/class-settings-menu-page.php:215
+#: admin/menu-pages/class-settings-menu-page.php:256
 msgid "Dark"
 msgstr "Oscuro"
 
-#: admin/menu-pages/class-settings-menu-page.php:216
+#: admin/menu-pages/class-settings-menu-page.php:257
 msgid "Material Blue"
 msgstr "Material Azul"
 
-#: admin/menu-pages/class-settings-menu-page.php:217
+#: admin/menu-pages/class-settings-menu-page.php:258
 msgid "Material Green"
 msgstr "Material Verde"
 
-#: admin/menu-pages/class-settings-menu-page.php:218
+#: admin/menu-pages/class-settings-menu-page.php:259
 msgid "Material Red"
 msgstr "Material Rojo"
 
-#: admin/menu-pages/class-settings-menu-page.php:219
+#: admin/menu-pages/class-settings-menu-page.php:260
 msgid "Material Orange"
 msgstr "Material Naranja"
 
-#: admin/menu-pages/class-settings-menu-page.php:237
+#: admin/menu-pages/class-settings-menu-page.php:278
 msgid "The theme for the date picker (calendar)."
 msgstr "El tema para el selector de fecha (calendario)."
 
-#: admin/menu-pages/class-settings-menu-page.php:276
+#: admin/menu-pages/class-settings-menu-page.php:317
 msgid "Date format for all the plugin."
 msgstr "Formato de fecha para todo el plugin."
 
-#: admin/menu-pages/class-settings-menu-page.php:279
+#: admin/menu-pages/class-settings-menu-page.php:320
 msgid ""
 "This only modifies the way in which the dates are displayed, that is, there "
 "will be no problems with the dates previously saved."
@@ -117,11 +125,11 @@ msgstr ""
 "Esto sólo modifica la forma en la que se visualizan las fechas, es decir que "
 "no se producirán problemas con las fechas guardadas con anterioridad."
 
-#: admin/menu-pages/class-settings-menu-page.php:313
+#: admin/menu-pages/class-settings-menu-page.php:354
 msgid "The page where the search results will be displayed."
 msgstr "La página donde se mostrarán los resultados de búsqueda."
 
-#: admin/menu-pages/class-settings-menu-page.php:348
+#: admin/menu-pages/class-settings-menu-page.php:389
 msgid ""
 "User to send email notifications when internal events occur such as the "
 "creation of a reservation."
@@ -129,49 +137,67 @@ msgstr ""
 "Usuario al cual enviar las notificaciones por correo electrónico cuando se "
 "produzcan eventos internos, como la creación de una reserva."
 
-#: admin/meta-boxes/class-accommodation-cmb.php:48
+#: admin/menu-pages/class-settings-menu-page.php:424
+msgid "Currency of the prices."
+msgstr "Moneda de los precios."
+
+#: admin/menu-pages/class-settings-menu-page.php:443
+msgid "No, do not show the currency code"
+msgstr "No mostrar el código de la moneda"
+
+#: admin/menu-pages/class-settings-menu-page.php:444
+msgid "Yes, show the currency code"
+msgstr "Sí, mostrar el código de la moneda"
+
+#: admin/menu-pages/class-settings-menu-page.php:461
+msgid ""
+"Show the currency code next to the symbol in the prices. Example: USD $ 100"
+msgstr "Mostrar el código de la moneda junto a los precios. Ejemplo: USD $ 100"
+
+#: admin/meta-boxes/class-accommodation-cmb.php:60
 #: admin/partials/menu-page-help-display.php:91
 msgid "Capacity"
 msgstr "Capacidad"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:58
-#: admin/meta-boxes/class-booking-cmb.php:231
-#: includes/post-types/class-season-cpt.php:47
-#: includes/shortcodes/class-booking-preview-csc.php:248
+#: admin/meta-boxes/class-accommodation-cmb.php:70
+#: admin/meta-boxes/class-booking-cmb.php:233
+#: includes/post-types/class-season-cpt.php:49
+#: includes/shortcodes/class-booking-calendar-csc.php:232
+#: includes/shortcodes/class-booking-preview-csc.php:250
 msgid "Season"
 msgstr "Temporada"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:69
+#: admin/meta-boxes/class-accommodation-cmb.php:81
 #: admin/partials/menu-page-help-display.php:99
 msgid "Pages"
 msgstr "Páginas"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:76
+#: admin/meta-boxes/class-accommodation-cmb.php:88
 #: admin/partials/menu-page-help-display.php:105
 msgid "Booking settings"
 msgstr "Ajustes de las reservas"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:94
+#: admin/meta-boxes/class-accommodation-cmb.php:106
 msgid "Maximum adults"
 msgstr "Máximo de adultos"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:102
+#: admin/meta-boxes/class-accommodation-cmb.php:114
 msgid "Maximum children"
 msgstr "Máximo de niños"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:124
+#: admin/meta-boxes/class-accommodation-cmb.php:139
 msgid "Price per night"
 msgstr "Precio por noche"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:150
+#: admin/meta-boxes/class-accommodation-cmb.php:167
 msgid "Accommodation page"
 msgstr "Página del alojamiento"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:155
+#: admin/meta-boxes/class-accommodation-cmb.php:172
 msgid "-- Create a new page for this accommodation --"
 msgstr "-- Crear una nueva página para este alojamiento --"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:168
+#: admin/meta-boxes/class-accommodation-cmb.php:185
 msgid ""
 "Select the first item to create a new page for this accommodation or select "
 "an existing page."
@@ -179,27 +205,27 @@ msgstr ""
 "Seleccione el primer elemento para crear una nueva página para este "
 "alojamiento o seleccione una página existente."
 
-#: admin/meta-boxes/class-accommodation-cmb.php:174
+#: admin/meta-boxes/class-accommodation-cmb.php:191
 msgid "Booking preview page"
 msgstr "Página de vista previa de la reserva"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:192
+#: admin/meta-boxes/class-accommodation-cmb.php:209
 msgid "Booking received page"
 msgstr "Página de reserva recibida"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:226
+#: admin/meta-boxes/class-accommodation-cmb.php:243
 msgid "Exclusivity of the last day"
 msgstr "Exclusividad del último día"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:231
+#: admin/meta-boxes/class-accommodation-cmb.php:248
 msgid "Activated, the last day is not shared"
 msgstr "Activado, no se comparte el último día"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:234
+#: admin/meta-boxes/class-accommodation-cmb.php:251
 msgid "Deactivated, can be booked on the last day"
 msgstr "Desactivado, se puede reservar en el último día"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:238
+#: admin/meta-boxes/class-accommodation-cmb.php:255
 msgid ""
 "Ideal for accommodation where it is possible that the day of check-out of a "
 "client is also the day of check-in of a new client."
@@ -207,11 +233,11 @@ msgstr ""
 "Ideal para alojamientos donde es posible que el día de check-out de un "
 "cliente sea también el día de check-in de un nuevo cliente."
 
-#: admin/meta-boxes/class-accommodation-cmb.php:244
+#: admin/meta-boxes/class-accommodation-cmb.php:261
 msgid "Minimum number of nights"
 msgstr "Número mínimo de noches"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:249
+#: admin/meta-boxes/class-accommodation-cmb.php:266
 msgid ""
 "Minimum number of nights that a visitor or client can select for a "
 "reservation."
@@ -219,161 +245,161 @@ msgstr ""
 "Número mínimo de noches que un visitante o cliente puede seleccionar para "
 "una reserva."
 
-#: admin/meta-boxes/class-accommodation-cmb.php:407
+#: admin/meta-boxes/class-accommodation-cmb.php:449
 msgid "Maximum Adults"
 msgstr "Máximo de Adultos"
 
-#: admin/meta-boxes/class-accommodation-cmb.php:408
+#: admin/meta-boxes/class-accommodation-cmb.php:450
 msgid "Maximum Children"
 msgstr "Máximo de Niños"
 
-#: admin/meta-boxes/class-booking-cmb.php:51
+#: admin/meta-boxes/class-booking-cmb.php:53
 msgid "Pending"
 msgstr "Pendiente"
 
-#: admin/meta-boxes/class-booking-cmb.php:52
+#: admin/meta-boxes/class-booking-cmb.php:54
 msgid "Confirmed"
 msgstr "Confirmado"
 
-#: admin/meta-boxes/class-booking-cmb.php:53
+#: admin/meta-boxes/class-booking-cmb.php:55
 msgid "Cancelled"
 msgstr "Cancelado"
 
-#: admin/meta-boxes/class-booking-cmb.php:65
-#: includes/shortcodes/class-booking-preview-csc.php:180
+#: admin/meta-boxes/class-booking-cmb.php:67
+#: includes/shortcodes/class-booking-preview-csc.php:182
 msgid "Booking details"
 msgstr "Detalles de la reserva"
 
-#: admin/meta-boxes/class-booking-cmb.php:72
+#: admin/meta-boxes/class-booking-cmb.php:74
 msgid "Billing details"
 msgstr "Detalles de facturación"
 
-#: admin/meta-boxes/class-booking-cmb.php:108
-#: admin/meta-boxes/class-booking-cmb.php:475
-#: includes/post-types/class-customer-cpt.php:47
+#: admin/meta-boxes/class-booking-cmb.php:110
+#: admin/meta-boxes/class-booking-cmb.php:477
+#: includes/post-types/class-customer-cpt.php:49
 msgid "Customer"
 msgstr "Cliente"
 
-#: admin/meta-boxes/class-booking-cmb.php:127
-#: admin/meta-boxes/class-booking-cmb.php:474
-#: includes/post-types/class-accommodation-cpt.php:47
-#: includes/shortcodes/class-booking-preview-csc.php:185
+#: admin/meta-boxes/class-booking-cmb.php:129
+#: admin/meta-boxes/class-booking-cmb.php:476
+#: includes/post-types/class-accommodation-cpt.php:49
+#: includes/shortcodes/class-booking-preview-csc.php:187
 msgid "Accommodation"
 msgstr "Alojamiento"
 
-#: admin/meta-boxes/class-booking-cmb.php:145
-#: includes/shortcodes/class-booking-calendar-csc.php:411
-#: includes/shortcodes/class-booking-calendar-csc.php:413
-#: includes/shortcodes/class-booking-preview-csc.php:203
-#: includes/shortcodes/class-search-accommodations-csc.php:143
+#: admin/meta-boxes/class-booking-cmb.php:147
+#: includes/shortcodes/class-booking-calendar-csc.php:421
+#: includes/shortcodes/class-booking-calendar-csc.php:423
+#: includes/shortcodes/class-booking-preview-csc.php:205
 #: includes/shortcodes/class-search-accommodations-csc.php:145
+#: includes/shortcodes/class-search-accommodations-csc.php:147
 msgid "Number of adults"
 msgstr "Cantidad de adultos"
 
-#: admin/meta-boxes/class-booking-cmb.php:153
-#: includes/shortcodes/class-booking-calendar-csc.php:417
-#: includes/shortcodes/class-booking-calendar-csc.php:419
-#: includes/shortcodes/class-booking-preview-csc.php:209
-#: includes/shortcodes/class-search-accommodations-csc.php:151
+#: admin/meta-boxes/class-booking-cmb.php:155
+#: includes/shortcodes/class-booking-calendar-csc.php:427
+#: includes/shortcodes/class-booking-calendar-csc.php:429
+#: includes/shortcodes/class-booking-preview-csc.php:211
 #: includes/shortcodes/class-search-accommodations-csc.php:153
+#: includes/shortcodes/class-search-accommodations-csc.php:155
 msgid "Number of children"
 msgstr "Cantidad de niños"
 
-#: admin/meta-boxes/class-booking-cmb.php:161
-#: admin/meta-boxes/class-booking-cmb.php:476
-#: includes/shortcodes/class-booking-preview-csc.php:191
+#: admin/meta-boxes/class-booking-cmb.php:163
+#: admin/meta-boxes/class-booking-cmb.php:478
+#: includes/shortcodes/class-booking-preview-csc.php:193
 msgid "Check-in date"
 msgstr "Fecha de llegada"
 
-#: admin/meta-boxes/class-booking-cmb.php:165
-#: admin/meta-boxes/class-booking-cmb.php:173
-#: admin/meta-boxes/class-season-cmb.php:76
-#: admin/meta-boxes/class-season-cmb.php:84
-#: includes/shortcodes/class-booking-calendar-csc.php:371
-#: includes/shortcodes/class-booking-calendar-csc.php:405
-#: includes/shortcodes/class-booking-calendar-csc.php:407
-#: includes/shortcodes/class-search-accommodations-csc.php:130
-#: includes/shortcodes/class-search-accommodations-csc.php:138
+#: admin/meta-boxes/class-booking-cmb.php:167
+#: admin/meta-boxes/class-booking-cmb.php:175
+#: admin/meta-boxes/class-season-cmb.php:78
+#: admin/meta-boxes/class-season-cmb.php:86
+#: includes/shortcodes/class-booking-calendar-csc.php:381
+#: includes/shortcodes/class-booking-calendar-csc.php:415
+#: includes/shortcodes/class-booking-calendar-csc.php:417
+#: includes/shortcodes/class-search-accommodations-csc.php:132
+#: includes/shortcodes/class-search-accommodations-csc.php:140
 msgid "Select Date.."
 msgstr "Seleccione una fecha.."
 
-#: admin/meta-boxes/class-booking-cmb.php:170
-#: includes/shortcodes/class-booking-preview-csc.php:197
+#: admin/meta-boxes/class-booking-cmb.php:172
+#: includes/shortcodes/class-booking-preview-csc.php:199
 msgid "Check-out date"
 msgstr "Fecha de partida"
 
-#: admin/meta-boxes/class-booking-cmb.php:178
-#: admin/meta-boxes/class-booking-cmb.php:479
+#: admin/meta-boxes/class-booking-cmb.php:180
+#: admin/meta-boxes/class-booking-cmb.php:481
 msgid "Status"
 msgstr "Estado"
 
-#: admin/meta-boxes/class-booking-cmb.php:223
+#: admin/meta-boxes/class-booking-cmb.php:225
 msgid "Number of nights"
 msgstr "Número de noches"
 
-#: admin/meta-boxes/class-booking-cmb.php:239
-#: includes/shortcodes/class-booking-preview-csc.php:269
+#: admin/meta-boxes/class-booking-cmb.php:241
+#: includes/shortcodes/class-booking-preview-csc.php:271
 msgid "Applies"
 msgstr "Se aplica"
 
-#: admin/meta-boxes/class-booking-cmb.php:253
+#: admin/meta-boxes/class-booking-cmb.php:255
 msgid "Normal nights without promotion."
 msgstr "Noches normales sin promoción."
 
-#: admin/meta-boxes/class-booking-cmb.php:260
-#: includes/shortcodes/class-booking-preview-csc.php:260
+#: admin/meta-boxes/class-booking-cmb.php:262
+#: includes/shortcodes/class-booking-preview-csc.php:262
 msgid "Promotion"
 msgstr "Promoción"
 
-#: admin/meta-boxes/class-booking-cmb.php:266
+#: admin/meta-boxes/class-booking-cmb.php:268
 msgid "Normal nights"
 msgstr "Noches normales"
 
-#: admin/meta-boxes/class-booking-cmb.php:278
+#: admin/meta-boxes/class-booking-cmb.php:280
 msgid "Booking total price"
 msgstr "Precio total de la reserva"
 
-#: admin/meta-boxes/class-booking-cmb.php:284
+#: admin/meta-boxes/class-booking-cmb.php:286
 msgid "When saving the changes the calculation will be made automatically."
 msgstr "Al guardar los cambios el cálculo se realizará automáticamente."
 
-#: admin/meta-boxes/class-booking-cmb.php:477
+#: admin/meta-boxes/class-booking-cmb.php:479
 msgid "Num. of nights"
 msgstr "Núm. de noches"
 
-#: admin/meta-boxes/class-booking-cmb.php:478
-#: includes/shortcodes/class-booking-preview-csc.php:284
+#: admin/meta-boxes/class-booking-cmb.php:480
+#: includes/shortcodes/class-booking-preview-csc.php:286
 msgid "Price"
 msgstr "Precio"
 
-#: admin/meta-boxes/class-booking-cmb.php:576
+#: admin/meta-boxes/class-booking-cmb.php:578
 msgid "The selected date does not belong to an active season."
 msgstr "La fecha seleccionada no pertenece a una temporada activa."
 
-#: admin/meta-boxes/class-booking-cmb.php:584
+#: admin/meta-boxes/class-booking-cmb.php:586
 msgid "The selected date is not available for reservations."
 msgstr "La fecha seleccionada no se encuentra disponible para reservas."
 
-#: admin/meta-boxes/class-customer-cmb.php:48
+#: admin/meta-boxes/class-customer-cmb.php:50
 msgid "Customer details"
 msgstr "Detalles del cliente"
 
-#: admin/meta-boxes/class-customer-cmb.php:65
-#: admin/meta-boxes/class-customer-cmb.php:137
+#: admin/meta-boxes/class-customer-cmb.php:67
+#: admin/meta-boxes/class-customer-cmb.php:139
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: admin/meta-boxes/class-season-cmb.php:47
+#: admin/meta-boxes/class-season-cmb.php:49
 msgid "Season details"
 msgstr "Detalles de la temporada"
 
-#: admin/meta-boxes/class-season-cmb.php:73
-#: admin/meta-boxes/class-season-cmb.php:169
+#: admin/meta-boxes/class-season-cmb.php:75
+#: admin/meta-boxes/class-season-cmb.php:171
 msgid "Start date"
 msgstr "Fecha de apertura"
 
-#: admin/meta-boxes/class-season-cmb.php:81
-#: admin/meta-boxes/class-season-cmb.php:170
+#: admin/meta-boxes/class-season-cmb.php:83
+#: admin/meta-boxes/class-season-cmb.php:172
 msgid "End date"
 msgstr "Fecha de cierre"
 
@@ -618,9 +644,9 @@ msgid "The maximum capacity of people who admit the accommodation."
 msgstr "La capacidad máxima de personas que admite el alojamiento."
 
 #: admin/partials/menu-page-help-display.php:95
-#: includes/post-types/class-season-cpt.php:46
-#: includes/post-types/class-season-cpt.php:56
-#: includes/shortcodes/class-booking-calendar-csc.php:185
+#: includes/post-types/class-season-cpt.php:48
+#: includes/post-types/class-season-cpt.php:58
+#: includes/shortcodes/class-booking-calendar-csc.php:192
 msgid "Seasons"
 msgstr "Temporadas"
 
@@ -706,7 +732,7 @@ msgid "Other items in the \"Bookings\" menu:"
 msgstr "Otros items en el menú \"Reservas\":"
 
 #: admin/partials/menu-page-help-display.php:124
-#: includes/post-types/class-booking-cpt.php:58
+#: includes/post-types/class-booking-cpt.php:60
 msgid "All Bookings"
 msgstr "Todas las reservas"
 
@@ -721,8 +747,8 @@ msgstr ""
 "solicitud de reserva pendiente."
 
 #: admin/partials/menu-page-help-display.php:128
-#: includes/post-types/class-customer-cpt.php:46
-#: includes/post-types/class-customer-cpt.php:56
+#: includes/post-types/class-customer-cpt.php:48
+#: includes/post-types/class-customer-cpt.php:58
 msgid "Customers"
 msgstr "Clientes"
 
@@ -771,160 +797,192 @@ msgstr ""
 "webservicesrank.com/wp-plugins/open-booking-calendar\">Open Booking "
 "Calendar</a> en nuestro sitio web."
 
-#: includes/post-types/class-accommodation-cpt.php:46
-#: includes/post-types/class-accommodation-cpt.php:56
+#: includes/class-open-booking-calendar.php:446
+msgid "US Dollar"
+msgstr "Dólar estadounidense"
+
+#: includes/class-open-booking-calendar.php:447
+msgid "Canadian Dollar"
+msgstr "Dólar canadiense"
+
+#: includes/class-open-booking-calendar.php:448
+msgid "Euro"
+msgstr "Euro"
+
+#: includes/class-open-booking-calendar.php:449
+msgid "Brazilian Real"
+msgstr "Real brasileño"
+
+#: includes/class-open-booking-calendar.php:450
+msgid "Australian Dollar"
+msgstr "Dólar australiano"
+
+#: includes/class-open-booking-calendar.php:451
+msgid "Mexican Peso"
+msgstr "Peso mexicano"
+
+#: includes/class-open-booking-calendar.php:452
+msgid "Pound Sterling"
+msgstr "Libra esterlina"
+
+#: includes/class-open-booking-calendar.php:453
+msgid "Argentine Peso"
+msgstr "Peso argentino"
+
+#: includes/post-types/class-accommodation-cpt.php:48
+#: includes/post-types/class-accommodation-cpt.php:58
 msgid "Accommodations"
 msgstr "Alojamientos"
 
-#: includes/post-types/class-accommodation-cpt.php:48
+#: includes/post-types/class-accommodation-cpt.php:50
 msgctxt "Add New Accommodation"
 msgid "Add New"
 msgstr "Añadir nuevo"
 
-#: includes/post-types/class-accommodation-cpt.php:49
+#: includes/post-types/class-accommodation-cpt.php:51
 msgid "Add New"
 msgstr "Añadir nuevo"
 
-#: includes/post-types/class-accommodation-cpt.php:50
+#: includes/post-types/class-accommodation-cpt.php:52
 msgid "Edit Accommodation"
 msgstr "Editar Alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:51
+#: includes/post-types/class-accommodation-cpt.php:53
 msgid "New Accommodation"
 msgstr "Nuevo Alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:52
+#: includes/post-types/class-accommodation-cpt.php:54
 msgid "View Accommodation"
 msgstr "Ver Alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:53
+#: includes/post-types/class-accommodation-cpt.php:55
 msgid "Search Accommodation"
 msgstr "Buscar Alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:54
+#: includes/post-types/class-accommodation-cpt.php:56
 msgid "No accommodations found"
 msgstr "No se encontraron Alojamientos"
 
-#: includes/post-types/class-accommodation-cpt.php:55
+#: includes/post-types/class-accommodation-cpt.php:57
 msgid "No accommodations found in Trash"
 msgstr "No se encontraron Alojamientos en la papelera"
 
-#: includes/post-types/class-accommodation-cpt.php:57
+#: includes/post-types/class-accommodation-cpt.php:59
 msgid "Insert into accommodation description"
 msgstr "Insertar en la descripción del alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:58
+#: includes/post-types/class-accommodation-cpt.php:60
 msgid "Uploaded to this accommodation"
 msgstr "Subido a este alojamiento"
 
-#: includes/post-types/class-accommodation-cpt.php:63
+#: includes/post-types/class-accommodation-cpt.php:65
 msgid "This is where you can add new accommodations to your hotel."
 msgstr "Aquí es donde puede añadir nuevos alojamientos a su hotel."
 
-#: includes/post-types/class-booking-cpt.php:49
-#: includes/shortcodes/class-booking-received-csc.php:260
+#: includes/post-types/class-booking-cpt.php:51
+#: includes/shortcodes/class-booking-received-csc.php:262
 msgid "Booking"
 msgstr "Reserva"
 
-#: includes/post-types/class-booking-cpt.php:50
+#: includes/post-types/class-booking-cpt.php:52
 msgctxt "Add New Booking"
 msgid "Add New"
 msgstr "Añadir nueva"
 
-#: includes/post-types/class-booking-cpt.php:51
+#: includes/post-types/class-booking-cpt.php:53
 msgid "Add New Booking"
 msgstr "Añadir nueva reserva"
 
-#: includes/post-types/class-booking-cpt.php:52
+#: includes/post-types/class-booking-cpt.php:54
 msgid "Edit Booking"
 msgstr "Editar reserva"
 
-#: includes/post-types/class-booking-cpt.php:53
+#: includes/post-types/class-booking-cpt.php:55
 msgid "New Booking"
 msgstr "Nueva reserva"
 
-#: includes/post-types/class-booking-cpt.php:54
+#: includes/post-types/class-booking-cpt.php:56
 msgid "View Booking"
 msgstr "Ver la reserva"
 
-#: includes/post-types/class-booking-cpt.php:55
+#: includes/post-types/class-booking-cpt.php:57
 msgid "Search Booking"
 msgstr "Buscar reservas"
 
-#: includes/post-types/class-booking-cpt.php:56
+#: includes/post-types/class-booking-cpt.php:58
 msgid "No bookings found"
 msgstr "No se encontraron reservas"
 
-#: includes/post-types/class-booking-cpt.php:57
+#: includes/post-types/class-booking-cpt.php:59
 msgid "No bookings found in Trash"
 msgstr "No se encontraron reservas en la papelera"
 
-#: includes/post-types/class-booking-cpt.php:59
+#: includes/post-types/class-booking-cpt.php:61
 msgid "Insert into booking description"
 msgstr "Insertar en la descripción de la reserva"
 
-#: includes/post-types/class-booking-cpt.php:60
+#: includes/post-types/class-booking-cpt.php:62
 msgid "Uploaded to this booking"
 msgstr "Subido a esta reserva"
 
-#: includes/post-types/class-booking-cpt.php:360
+#: includes/post-types/class-booking-cpt.php:362
 msgid "--- Booking details: ---"
 msgstr "--- Detalles de la reserva: ---"
 
-#: includes/post-types/class-booking-cpt.php:363
+#: includes/post-types/class-booking-cpt.php:365
 msgid "Accommodation:"
 msgstr "Alojamiento:"
 
-#: includes/post-types/class-booking-cpt.php:365
+#: includes/post-types/class-booking-cpt.php:367
 msgid "Check-in date:"
 msgstr "Fecha de check-in:"
 
-#: includes/post-types/class-booking-cpt.php:367
+#: includes/post-types/class-booking-cpt.php:369
 msgid "Check-out date:"
 msgstr "Fecha de check-out:"
 
-#: includes/post-types/class-booking-cpt.php:369
+#: includes/post-types/class-booking-cpt.php:371
 msgid "Number of adults:"
 msgstr "Número de adultos:"
 
-#: includes/post-types/class-booking-cpt.php:371
+#: includes/post-types/class-booking-cpt.php:373
 msgid "Number of children:"
 msgstr "Número de niños:"
 
-#: includes/post-types/class-booking-cpt.php:373
+#: includes/post-types/class-booking-cpt.php:375
 msgid "Number of nights:"
 msgstr "Número de noches:"
 
-#: includes/post-types/class-booking-cpt.php:376
+#: includes/post-types/class-booking-cpt.php:378
 msgid "Season:"
 msgstr "Temporada:"
 
-#: includes/post-types/class-booking-cpt.php:382
+#: includes/post-types/class-booking-cpt.php:384
 msgid "Promotion:"
 msgstr "Promoción:"
 
-#: includes/post-types/class-booking-cpt.php:382
-#: includes/shortcodes/class-booking-calendar-csc.php:221
-#: includes/shortcodes/class-booking-preview-csc.php:262
+#: includes/post-types/class-booking-cpt.php:384
+#: includes/shortcodes/class-booking-calendar-csc.php:230
+#: includes/shortcodes/class-booking-preview-csc.php:264
 msgid "nights"
 msgstr "noches"
 
-#: includes/post-types/class-booking-cpt.php:386
+#: includes/post-types/class-booking-cpt.php:388
 msgid "Price:"
 msgstr "Precio:"
 
-#: includes/post-types/class-booking-cpt.php:395
+#: includes/post-types/class-booking-cpt.php:397
 msgid "We have received your booking request"
 msgstr "Hemos recibido su solicitud de reserva"
 
-#: includes/post-types/class-booking-cpt.php:396
-#: includes/post-types/class-booking-cpt.php:406
-#: includes/post-types/class-booking-cpt.php:418
-#: includes/post-types/class-booking-cpt.php:429
+#: includes/post-types/class-booking-cpt.php:398
+#: includes/post-types/class-booking-cpt.php:408
+#: includes/post-types/class-booking-cpt.php:420
+#: includes/post-types/class-booking-cpt.php:431
 msgid "Hello"
 msgstr "Hola"
 
-#: includes/post-types/class-booking-cpt.php:397
+#: includes/post-types/class-booking-cpt.php:399
 msgid ""
 "We have received your booking request, it will be verified and we will send "
 "you a new email when it is confirmed."
@@ -932,219 +990,219 @@ msgstr ""
 "Hemos recibido su solicitud de reserva, la misma será verificada y le "
 "enviaremos un nuevo email cuando sea confirmada."
 
-#: includes/post-types/class-booking-cpt.php:399
-#: includes/post-types/class-booking-cpt.php:420
-#: includes/post-types/class-booking-cpt.php:431
+#: includes/post-types/class-booking-cpt.php:401
+#: includes/post-types/class-booking-cpt.php:422
+#: includes/post-types/class-booking-cpt.php:433
 msgid "We remain available if you have any questions, regards!"
 msgstr "Quedamos a disposición si tiene alguna duda, saludos!"
 
-#: includes/post-types/class-booking-cpt.php:405
+#: includes/post-types/class-booking-cpt.php:407
 msgid "New booking request"
 msgstr "Nueva solicitud de reserva"
 
-#: includes/post-types/class-booking-cpt.php:407
+#: includes/post-types/class-booking-cpt.php:409
 msgid "A new reservation for accommodation has been requested."
 msgstr "Se ha solicitado una nueva reserva para un alojamiento."
 
-#: includes/post-types/class-booking-cpt.php:409
+#: includes/post-types/class-booking-cpt.php:411
 msgid "You can confirm or cancel the request from the following link:"
 msgstr "Puede confirmar o cancelar la solicitud desde el siguiente enlace:"
 
-#: includes/post-types/class-booking-cpt.php:417
+#: includes/post-types/class-booking-cpt.php:419
 msgid "Your reservation has been confirmed"
 msgstr "Su reserva ha sido confirmada"
 
-#: includes/post-types/class-booking-cpt.php:419
+#: includes/post-types/class-booking-cpt.php:421
 msgid "We have verified and confirmed your reservation for accommodation:"
 msgstr "Hemos verificado y confirmado su reserva para el alojamiento:"
 
-#: includes/post-types/class-booking-cpt.php:428
+#: includes/post-types/class-booking-cpt.php:430
 msgid "Your reservation has been canceled"
 msgstr "Su reserva ha sido cancelada"
 
-#: includes/post-types/class-booking-cpt.php:430
+#: includes/post-types/class-booking-cpt.php:432
 msgid "We have verified and canceled your reservation for accommodation:"
 msgstr "Hemos verificado y cancelado su reserva para el alojamiento:"
 
-#: includes/post-types/class-customer-cpt.php:48
+#: includes/post-types/class-customer-cpt.php:50
 msgctxt "Add New Customer"
 msgid "Add New"
 msgstr "Añadir nuevo"
 
-#: includes/post-types/class-customer-cpt.php:49
+#: includes/post-types/class-customer-cpt.php:51
 msgid "Add New Customer"
 msgstr "Añadir nuevo cliente"
 
-#: includes/post-types/class-customer-cpt.php:50
+#: includes/post-types/class-customer-cpt.php:52
 msgid "Edit Customer"
 msgstr "Editar cliente"
 
-#: includes/post-types/class-customer-cpt.php:51
+#: includes/post-types/class-customer-cpt.php:53
 msgid "New Customer"
 msgstr "Nuevo cliente"
 
-#: includes/post-types/class-customer-cpt.php:52
+#: includes/post-types/class-customer-cpt.php:54
 msgid "View Customer"
 msgstr "Ver cliente"
 
-#: includes/post-types/class-customer-cpt.php:53
+#: includes/post-types/class-customer-cpt.php:55
 msgid "Search Customer"
 msgstr "Buscar cliente"
 
-#: includes/post-types/class-customer-cpt.php:54
+#: includes/post-types/class-customer-cpt.php:56
 msgid "No customers found"
 msgstr "No se encontraron clientes"
 
-#: includes/post-types/class-customer-cpt.php:55
+#: includes/post-types/class-customer-cpt.php:57
 msgid "No customers found in Trash"
 msgstr "No se encontraron clientes en la papelera"
 
-#: includes/post-types/class-customer-cpt.php:57
+#: includes/post-types/class-customer-cpt.php:59
 msgid "Insert into customer description"
 msgstr "Insertar en la descripción del cliente"
 
-#: includes/post-types/class-customer-cpt.php:58
+#: includes/post-types/class-customer-cpt.php:60
 msgid "Uploaded to this customer"
 msgstr "Subido a este cliente"
 
-#: includes/post-types/class-customer-cpt.php:63
+#: includes/post-types/class-customer-cpt.php:65
 msgid "This is where you can add new customers to your hotel."
 msgstr "Aquí es donde puede añadir nuevos clientes a su hotel."
 
-#: includes/post-types/class-season-cpt.php:48
+#: includes/post-types/class-season-cpt.php:50
 msgctxt "Add New Season"
 msgid "Add New"
 msgstr "Añadir nueva"
 
-#: includes/post-types/class-season-cpt.php:49
+#: includes/post-types/class-season-cpt.php:51
 msgid "Add New Season"
 msgstr "Añadir nueva temporada"
 
-#: includes/post-types/class-season-cpt.php:50
+#: includes/post-types/class-season-cpt.php:52
 msgid "Edit Season"
 msgstr "Editar temporada"
 
-#: includes/post-types/class-season-cpt.php:51
+#: includes/post-types/class-season-cpt.php:53
 msgid "New Season"
 msgstr "Nueva temporada"
 
-#: includes/post-types/class-season-cpt.php:52
+#: includes/post-types/class-season-cpt.php:54
 msgid "View Season"
 msgstr "Ver temporada"
 
-#: includes/post-types/class-season-cpt.php:53
+#: includes/post-types/class-season-cpt.php:55
 msgid "Search Season"
 msgstr "Buscar temporadas"
 
-#: includes/post-types/class-season-cpt.php:54
+#: includes/post-types/class-season-cpt.php:56
 msgid "No seasons found"
 msgstr "No se encontraron temporadas"
 
-#: includes/post-types/class-season-cpt.php:55
+#: includes/post-types/class-season-cpt.php:57
 msgid "No seasons found in Trash"
 msgstr "No se encontraron temporadas en la papelera"
 
-#: includes/post-types/class-season-cpt.php:57
+#: includes/post-types/class-season-cpt.php:59
 msgid "Insert into season description"
 msgstr "Insertar en la descripción de la temporada"
 
-#: includes/post-types/class-season-cpt.php:58
+#: includes/post-types/class-season-cpt.php:60
 msgid "Uploaded to this season"
 msgstr "Subido a esta temporada"
 
-#: includes/post-types/class-season-cpt.php:63
+#: includes/post-types/class-season-cpt.php:65
 msgid "This is where you can add new seasons."
 msgstr "Aquí es donde puedes añadir nuevas temporadas."
 
-#: includes/shortcodes/class-booking-calendar-csc.php:117
+#: includes/shortcodes/class-booking-calendar-csc.php:119
 msgid "Invalid accommodation"
 msgstr "Alojamiento inválido"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:167
-#: includes/shortcodes/class-booking-preview-csc.php:250
+#: includes/shortcodes/class-booking-calendar-csc.php:174
+#: includes/shortcodes/class-booking-preview-csc.php:252
 msgid "per night"
 msgstr "por noche"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:187
+#: includes/shortcodes/class-booking-calendar-csc.php:194
 msgid "No active seasons were found with available dates."
 msgstr "No se encontraron temporadas activas con fechas disponibles."
 
-#: includes/shortcodes/class-booking-calendar-csc.php:222
+#: includes/shortcodes/class-booking-calendar-csc.php:231
 msgid "for"
 msgstr "por"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:229
+#: includes/shortcodes/class-booking-calendar-csc.php:239
 msgid "Promotions"
 msgstr "Promociones"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:231
+#: includes/shortcodes/class-booking-calendar-csc.php:241
 msgid "No active promotions were found with available dates."
 msgstr "No se encontraron promociones activas con fechas disponibles."
 
-#: includes/shortcodes/class-booking-calendar-csc.php:361
+#: includes/shortcodes/class-booking-calendar-csc.php:371
 msgid "Availability calendar"
 msgstr "Calendario de disponibilidad"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:379
+#: includes/shortcodes/class-booking-calendar-csc.php:389
 #, php-format
 msgid "The minimum number of nights is %s (%s days)."
 msgstr "El número mínimo de noches es %s (%s días)."
 
-#: includes/shortcodes/class-booking-calendar-csc.php:397
+#: includes/shortcodes/class-booking-calendar-csc.php:407
 msgid "Booking form"
 msgstr "Formulario de reserva"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:423
-#: includes/shortcodes/class-booking-calendar-csc.php:425
-#: includes/shortcodes/class-search-accommodations-csc.php:159
+#: includes/shortcodes/class-booking-calendar-csc.php:433
+#: includes/shortcodes/class-booking-calendar-csc.php:435
 #: includes/shortcodes/class-search-accommodations-csc.php:161
+#: includes/shortcodes/class-search-accommodations-csc.php:163
 msgid "Your name"
 msgstr "Su nombre"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:429
-#: includes/shortcodes/class-booking-calendar-csc.php:431
-#: includes/shortcodes/class-search-accommodations-csc.php:165
+#: includes/shortcodes/class-booking-calendar-csc.php:439
+#: includes/shortcodes/class-booking-calendar-csc.php:441
 #: includes/shortcodes/class-search-accommodations-csc.php:167
+#: includes/shortcodes/class-search-accommodations-csc.php:169
 msgid "Your email"
 msgstr "Su email"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:436
+#: includes/shortcodes/class-booking-calendar-csc.php:446
 msgid "Preview booking"
 msgstr "Previsualizar la reserva"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:457
+#: includes/shortcodes/class-booking-calendar-csc.php:467
 msgid "Out of season"
 msgstr "Fuera de temporada"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:458
+#: includes/shortcodes/class-booking-calendar-csc.php:468
 msgid "Date already reserved"
 msgstr "Fecha reservada"
 
-#: includes/shortcodes/class-booking-calendar-csc.php:459
+#: includes/shortcodes/class-booking-calendar-csc.php:469
 msgid "Select your dates in the calendar"
 msgstr "Seleccione sus fechas en el calendario"
 
-#: includes/shortcodes/class-booking-preview-csc.php:243
+#: includes/shortcodes/class-booking-preview-csc.php:245
 msgid "Price details"
 msgstr "Detalles del precio"
 
-#: includes/shortcodes/class-booking-preview-csc.php:278
+#: includes/shortcodes/class-booking-preview-csc.php:280
 #, php-format
 msgid "%s night"
 msgid_plural "%s nights"
 msgstr[0] "%s noche"
 msgstr[1] "%s noches"
 
-#: includes/shortcodes/class-booking-preview-csc.php:307
+#: includes/shortcodes/class-booking-preview-csc.php:309
 msgid "Confirm booking"
 msgstr "Confirmar la reserva"
 
-#: includes/shortcodes/class-booking-preview-csc.php:312
-#: includes/shortcodes/class-booking-received-csc.php:136
+#: includes/shortcodes/class-booking-preview-csc.php:314
+#: includes/shortcodes/class-booking-received-csc.php:138
 msgid "The sent data is not valid"
 msgstr "Los datos enviados no son válidos"
 
-#: includes/shortcodes/class-booking-received-csc.php:210
+#: includes/shortcodes/class-booking-received-csc.php:212
 msgid ""
 "Sorry, the dates were edited internally and now the dates you selected no "
 "longer belong to an active season."
@@ -1152,7 +1210,7 @@ msgstr ""
 "Lo sentimos, las fechas fueron editadas internamente y ahora las fechas que "
 "seleccionó ya no pertenecen a una temporada activa."
 
-#: includes/shortcodes/class-booking-received-csc.php:219
+#: includes/shortcodes/class-booking-received-csc.php:221
 msgid ""
 "Sorry, another reservation was made seconds before this and now the dates "
 "you selected are no longer available."
@@ -1161,79 +1219,82 @@ msgstr ""
 "proceso de confirmación y ahora las fechas que seleccionó ya no se "
 "encuentran disponibles."
 
-#: includes/shortcodes/class-booking-received-csc.php:232
+#: includes/shortcodes/class-booking-received-csc.php:234
 msgid ""
 "You can go back to the calendar and select a different date or accommodation."
 msgstr ""
 "Puede volver al calendario y seleccionar una fecha o alojamiento diferente."
 
-#: includes/shortcodes/class-booking-received-csc.php:275
+#: includes/shortcodes/class-booking-received-csc.php:277
 msgid "Your reservation was received successfully!"
 msgstr "¡Su reserva fue recibida con éxito!"
 
-#: includes/shortcodes/class-booking-received-csc.php:279
+#: includes/shortcodes/class-booking-received-csc.php:281
 msgid "We will send you an email with the details of the booking."
 msgstr ""
 "Le enviaremos un correo electrónico con los detalles de la reservación."
 
-#: includes/shortcodes/class-search-accommodations-csc.php:114
-#: includes/shortcodes/class-search-results-csc.php:194
+#: includes/shortcodes/class-search-accommodations-csc.php:116
+#: includes/shortcodes/class-search-results-csc.php:196
 msgid "Search accommodations"
 msgstr "Buscar Alojamientos"
 
-#: includes/shortcodes/class-search-accommodations-csc.php:173
+#: includes/shortcodes/class-search-accommodations-csc.php:175
 msgid "Search"
 msgstr "Buscar"
 
-#: includes/shortcodes/class-search-results-csc.php:244
+#: includes/shortcodes/class-search-results-csc.php:246
 msgid ""
 "There are currently no accommodations available in the selected dates period."
 msgstr ""
 "Actualmente no hay alojamientos disponibles en el período de fechas "
 "seleccionado."
 
-#: includes/taxonomies/class-accommodation-type-ct.php:45
+#: includes/taxonomies/class-accommodation-type-ct.php:47
 msgctxt "taxonomy general name"
 msgid "Accommodation Types"
 msgstr "Tipos de Alojamientos"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:46
+#: includes/taxonomies/class-accommodation-type-ct.php:48
 msgctxt "taxonomy singular name"
 msgid "Accommodation Type"
 msgstr "Tipo de Alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:47
+#: includes/taxonomies/class-accommodation-type-ct.php:49
 msgid "Search Accommodation Types"
 msgstr "Buscar tipos de alojamientos"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:48
+#: includes/taxonomies/class-accommodation-type-ct.php:50
 msgid "All Types"
 msgstr "Todos los tipos"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:49
+#: includes/taxonomies/class-accommodation-type-ct.php:51
 msgid "Parent Accommodation Type"
 msgstr "Padre del tipo de alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:50
+#: includes/taxonomies/class-accommodation-type-ct.php:52
 msgid "Parent Accommodation Type:"
 msgstr "Padre del Tipo de Alojamiento:"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:51
+#: includes/taxonomies/class-accommodation-type-ct.php:53
 msgid "Edit Accommodation Type"
 msgstr "Editar tipo de alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:52
+#: includes/taxonomies/class-accommodation-type-ct.php:54
 msgid "Update Accommodation Type"
 msgstr "Actualizar el tipo de alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:53
+#: includes/taxonomies/class-accommodation-type-ct.php:55
 msgid "Add New Accommodation Type"
 msgstr "Añadir un nuevo tipo de alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:54
+#: includes/taxonomies/class-accommodation-type-ct.php:56
 msgid "New Accommodation Type Name"
 msgstr "Nuevo nombre de tipo de alojamiento"
 
-#: includes/taxonomies/class-accommodation-type-ct.php:55
+#: includes/taxonomies/class-accommodation-type-ct.php:57
 msgid "Accommodation Type"
 msgstr "Tipo de alojamiento"
+
+#~ msgid "EUR - Euro"
+#~ msgstr "EUR - Euro"

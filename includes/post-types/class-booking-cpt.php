@@ -356,7 +356,9 @@ class Booking_CPT
                 'num_nights'
                 'season_id'
                 'promotion_id'
-                'total_price'
+				'total_price',
+				'currency_code',
+				'currency_symbol',
 			*/
 
 			$message_booking_details .= "\n" . esc_html__('--- Booking details: ---', 'open-booking-calendar') . "\n\n";
@@ -385,7 +387,7 @@ class Booking_CPT
 
 			}
 
-			$message_booking_details .= esc_html( __('Price:', 'open-booking-calendar') . ' $' . $meta_data['total_price'] ) . "\n";
+			$message_booking_details .= esc_html( __('Price:', 'open-booking-calendar') . ' ' . $meta_data['currency_code'] . ' ' . $meta_data['currency_symbol'] . ' ' . $meta_data['total_price'] ) . "\n";
 
 			$message_booking_details .= "\n--- --- --- ---\n\n";
 

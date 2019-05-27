@@ -26,6 +26,15 @@ class BookingPreview_CSC
      */
     private $version;
     
+	/**
+	 * The plugin core class intance
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      object    $plugin_core    The plugin core class intance.
+	 */
+	protected $plugin_core;
+
     /**
 	 * The booking custom post type object.
 	 *
@@ -42,11 +51,12 @@ class BookingPreview_CSC
      * @param      string    $open_booking_calendar       The name of the plugin.
      * @param      string    $version    The version of this plugin.
      */
-    public function __construct($open_booking_calendar, $version, $booking_cpt)
+    public function __construct($open_booking_calendar, $version, $plugin_core, $booking_cpt)
     {
 
         $this->open_booking_calendar = $open_booking_calendar;
         $this->version = $version;
+		$this->plugin_core = $plugin_core;
 
         $this->booking_cpt = $booking_cpt;
 
@@ -171,8 +181,22 @@ class BookingPreview_CSC
 
             // Get the options
             $options = get_option('obcal_options');
+
             // Get date format
             $options_date_format = isset($options['obcal_field_date_format']) ? $options['obcal_field_date_format'] : 'Y-m-d';
+
+            // Get if show de currency code
+            $show_currency_code = isset($options['obcal_field_show_currency_code']) ? $options['obcal_field_show_currency_code'] : '1';
+
+            // Get the general currency
+            $system_currency_code = isset($options['obcal_field_system_currency_code']) ? strtolower($options['obcal_field_system_currency_code']) : 'usd';
+
+            // Get currencies
+            $currencies = $this->plugin_core->get_currencies();
+
+            // Get the currency and currency symbol
+            $currency_code = rest_sanitize_boolean($show_currency_code) ? strtoupper($system_currency_code) : '';
+            $currency_symbol = $currencies[$system_currency_code]['symbol'];
 
             $check_in_date = new \DateTime($check_in_date);
             $check_out_date = new \DateTime($check_out_date);
@@ -230,7 +254,11 @@ class BookingPreview_CSC
 
             // Get season meta data
             $season_price_per_night = get_post_meta($accommodation_id, "_obcal_accommodation_s{$season->ID}_price_per_night", true);
-    
+
+            // Get the accommodation currency code and currency symbol
+            $accommodation_currency_code = rest_sanitize_boolean($show_currency_code) ? strtoupper(get_post_meta($accommodation_id, "_obcal_accommodation_currency_code", true)) : '';
+            $accommodation_currency_symbol = get_post_meta($accommodation_id, "_obcal_accommodation_currency_symbol", true);
+
 			// Get booking promotion id
 			$promotion_id = defined( 'OPEN_BOOKING_CALENDAR_PLUS_VERSION' ) ? apply_filters('obcal_promotion_get_promotion_id', $accommodation_id, $season_id, $num_nights) : '';
 
@@ -249,7 +277,7 @@ class BookingPreview_CSC
             $o .= '<tr><th scope="row">';
             $o .= esc_html__('Season', 'open-booking-calendar');
             $o .= '</th><td>';
-            $o .= esc_html($season->post_title . ', $' . $season_price_per_night . ' ' . __('per night', 'open-booking-calendar') );
+            $o .= esc_html($season->post_title . ', ' . $accommodation_currency_code . ' ' . $accommodation_currency_symbol . ' ' . $season_price_per_night . ' ' . __('per night', 'open-booking-calendar') );
             $o .= '</td></tr>';
 
             if (!empty($promotion_id)) {
@@ -258,10 +286,14 @@ class BookingPreview_CSC
                 $promotion_num_nights = get_post_meta($promotion_id, "_obcal_promotion_num_nights", true);
                 $promotion_total_price = get_post_meta($promotion_id, "_obcal_promotion_total_price", true);    
 
+                // Get the currency code and currency symbol
+                $promotion_currency_code = rest_sanitize_boolean($show_currency_code) ? strtoupper(get_post_meta($promotion_id, "_obcal_promotion_currency_code", true)) : '';
+                $promotion_currency_symbol = get_post_meta($promotion_id, "_obcal_promotion_currency_symbol", true);
+
                 $o .= '<tr><th scope="row">';
                 $o .= esc_html__('Promotion', 'open-booking-calendar');
                 $o .= '</th><td>';
-                $o .= esc_html($promotion->post_title . ', ' . $promotion_num_nights . ' ' . __('nights', 'open-booking-calendar') . ', $' . $promotion_total_price);
+                $o .= esc_html($promotion->post_title . ', ' . $promotion_num_nights . ' ' . __('nights', 'open-booking-calendar') . ', ' . $promotion_currency_code . ' ' . $promotion_currency_symbol . ' ' . $promotion_total_price);
                 $o .= '</td></tr>';
 
                 $num_nights = (int)$num_nights - (int)$promotion_num_nights;
@@ -285,7 +317,7 @@ class BookingPreview_CSC
             $o .= '<tr><th scope="row">';
             $o .= esc_html__('Price', 'open-booking-calendar');
             $o .= '</th><td>';
-            $o .= '$' . esc_html($total_price);
+            $o .= esc_html($currency_code . ' ' . $currency_symbol . ' ' . $total_price);
             $o .= '</td></tr>';
 
             $o .= '</table>';
